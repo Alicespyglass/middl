@@ -1,0 +1,3 @@
+rootProject.name = 'middl'
+
+include ':app'
