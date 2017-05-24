@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, Alert, Button } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 class EntryForm extends Component {
   constructor() {
@@ -40,22 +41,16 @@ class EntryForm extends Component {
       <View style={styles.button}>
         <Button
           title='GO!'
-          color='red'
+          color='blue'
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={onPressGo}
+          onPress={Actions.results}
         />
       </View>
     </View>
     );
   }
 
-
 }
-
-const onPressGo = () => {
-  Alert.alert('Button has been pressed');
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -94,8 +89,7 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 50,
     justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: 'red'
+    alignItems: 'center'
   },
   button: {
     flex: 2,
