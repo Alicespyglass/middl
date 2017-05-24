@@ -26,7 +26,7 @@ class EntryForm extends Component {
         <CardSection>
             <Input
               label="Their location"
-              placeholder="Where is your friend?"
+              placeholder="Where's your friend?"
             />
         </CardSection>
 
