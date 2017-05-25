@@ -1,6 +1,6 @@
 # middl
 
-An app for finding cool places to meet your friends efficiently.
+An iOS app for finding cool places to meet your friends efficiently.
 
 
 ## Set-up
@@ -14,6 +14,11 @@ $ cd file/location/of/middl
 $ git clone [key]
 $ npm install
 ```
+If you come across any errors in the terminal at the install, try updating node
+```
+$ npm update 
+```
+
 **3. Download xcode**
 
 - Make a cup of tea
