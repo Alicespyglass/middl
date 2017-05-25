@@ -7,13 +7,15 @@ import { Actions } from 'react-native-router-flux';
 class EntryForm extends Component {
   constructor() {
     super();
-    this.state = { personOneLocation: 'E9 5QQ',
-    personTwoLocation: 'E8 1EU'
+    this.state = { personOneLocation: null,
+    personTwoLocation: null
     };
   }
 
   render() {
-    const goToResultsPage = () => Actions.results({ p1: this.state.personOneLocation, p2: this.state.personTwoLocation });
+    const goToResultsPage = () =>
+    Actions.results({ p1: this.state.personOneLocation,
+      p2: this.state.personTwoLocation });
 
     return (
       <View style={styles.container}>
@@ -22,6 +24,7 @@ class EntryForm extends Component {
           <Input
             label="Your location"
             placeholder="Where are you?"
+            onChangeText={(personOneLocation) => this.setState({personOneLocation})}
           />
         </CardSection>
 
@@ -29,6 +32,7 @@ class EntryForm extends Component {
             <Input
               label="Their location"
               placeholder="Where's your friend?"
+              onChangeText={(personTwoLocation) => this.setState({personTwoLocation})}
             />
         </CardSection>
 
