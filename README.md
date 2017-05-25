@@ -1,6 +1,6 @@
 # middl
 
-App for finding cool places to meet your friends efficiently.
+An app for finding cool places to meet your friends efficiently.
 
 
 ## Set-up
