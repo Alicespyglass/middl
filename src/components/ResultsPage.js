@@ -6,7 +6,10 @@ class ResultsPage extends Component {
     return (<View>
       <View>
         <Text>
-          This is the second page!!!
+          {this.props.p1}
+        </Text>
+        <Text>
+          {this.props.p2}
         </Text>
       </View>
     </View>);

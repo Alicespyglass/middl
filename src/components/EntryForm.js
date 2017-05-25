@@ -7,12 +7,14 @@ import { Actions } from 'react-native-router-flux';
 class EntryForm extends Component {
   constructor() {
     super();
-    this.state = { personOneText: 'Enter your location',
-    personTwoText: 'Enter your friend\'s location'
-      //this is where we will define our state
+    this.state = { personOneLocation: 'E9 5QQ',
+    personTwoLocation: 'E8 1EU'
     };
   }
+
   render() {
+    const goToResultsPage = () => Actions.results({ p1: this.state.personOneLocation, p2: this.state.personTwoLocation });
+
     return (
       <View style={styles.container}>
       <Card>
@@ -33,7 +35,7 @@ class EntryForm extends Component {
         <CardSection>
           <Button
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={Actions.results}
+          onPress={goToResultsPage}
           >
             GO
           </Button>
@@ -44,6 +46,7 @@ class EntryForm extends Component {
   }
 
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1
