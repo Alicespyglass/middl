@@ -14,8 +14,18 @@ class ResultsPage extends Component {
             longitude: -122.4324,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
-          }}
-        />
+          }}>
+          <MapView.Marker
+            coordinate={{
+              latitude: 37.78825,
+              longitude: -122.4324
+            }}>
+              <View>
+                <View style={styles.marker} />
+              </View>
+            </MapView.Marker>
+
+          </MapView>
       </View>
 
       <View style={styles.textContainer}>
@@ -29,6 +39,15 @@ class ResultsPage extends Component {
 }
 
 const styles = StyleSheet.create({
+  marker: {
+    height: 20,
+    width: 20,
+    borderWidth: 3,
+    borderColor: 'white',
+    borderRadius: 20 / 2,
+    overflow: 'hidden',
+    backgroundColor: '#007AFF'
+  },
   container: {
     flex: 1
   },
