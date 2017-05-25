@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
+    "react-native-maps": "^0.15.2",
     "react-native-router-flux": "^3.39.1"
   },
   "devDependencies": {
@@ -19,7 +20,9 @@
     "react-test-renderer": "16.0.0-alpha.6"
   },
   "jest": {
-  	"preset": "react-native",
-  	"setupFiles": ["./jest/setup.js"]
+    "preset": "react-native",
+    "setupFiles": [
+      "./jest/setup.js"
+    ]
   }
 }
