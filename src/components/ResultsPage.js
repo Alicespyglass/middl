@@ -41,14 +41,10 @@ class ResultsPage extends Component {
 
       <View style={styles.textContainer}>
         <Text>
-<<<<<<< HEAD
-          Go here
-=======
           {this.props.p1}
         </Text>
         <Text>
           {this.props.p2}
->>>>>>> 2aa87c06a2b6b8cf8ed9422b902f5a617575810d
         </Text>
         <Button
         onPress={console.log(this.state.p1Location.results[0].place_id)}
