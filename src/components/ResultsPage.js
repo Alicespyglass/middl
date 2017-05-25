@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 import MapView from 'react-native-maps';
 
 class ResultsPage extends Component {
   render() {
-    return (<View style={styles.container}>
+    return (
+
+    <Image source={require('./assets/oldMap.jpg')} style={styles.backgroundImage}>
+
+    <View style={styles.container}>
 
       <View style={styles.mapContainer}>
         <MapView
@@ -29,14 +33,20 @@ class ResultsPage extends Component {
       </View>
 
       <View style={styles.textContainer}>
-        <Text>
+        <Text style={styles.goContainer}>
           Go here
+        </Text>
+
+        <Text style={styles.addressContainer}>
+          Address
         </Text>
       </View>
 
-    </View>);
+    </View>
+    </Image>
+    )
   }
-}
+};
 
 const styles = StyleSheet.create({
   marker: {
@@ -56,13 +66,33 @@ const styles = StyleSheet.create({
     right: 25,
     top: 25,
     bottom: 25,
-    position: 'absolute'
+    position: 'absolute',
+    borderRadius: 20
   },
   textContainer: {
-    flex: 1
+    flex: 1,
   },
   mapContainer: {
-    flex: 1
+    flex: 1,
+  },
+  goContainer: {
+    flex: 1,
+    left: 25,
+    right: 25,
+    position: 'absolute'
+  },
+  addressContainer: {
+    flex: 3,
+    top: 25,
+    bottom: 25,
+    left: 25,
+    right: 25,
+    position: 'absolute'
+  },
+  backgroundImage: {
+    flex: 1,
+    // alignSelf: 'stretch',
+    width: null
   }
 })
 
