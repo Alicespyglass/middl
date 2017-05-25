@@ -67,11 +67,11 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          Your location
+          You
         </Text>
         <TextInput
           autoCorrect={false}
-          onChangeText={undefined}
+          onChangeText={[Function]}
           placeholder="Where are you?"
           secureTextEntry={undefined}
           style={
@@ -126,11 +126,11 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          Their location
+          Them
         </Text>
         <TextInput
           autoCorrect={false}
-          onChangeText={undefined}
+          onChangeText={[Function]}
           placeholder="Where's your friend?"
           secureTextEntry={undefined}
           style={

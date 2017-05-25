@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Card, CardSection, Input, Button } from './common'
+import { Card, CardSection, Input, Button } from './common';
 
 import { Actions } from 'react-native-router-flux';
 
