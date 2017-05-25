@@ -13,26 +13,28 @@ class EntryForm extends Component {
   }
 
   render() {
-    const goToResultsPage = () =>
+
+    const goToResultsPage = () => {
     Actions.results({ p1: this.state.personOneLocation,
       p2: this.state.personTwoLocation });
+    };
 
     return (
       <View style={styles.container}>
       <Card>
         <CardSection>
           <Input
-            label="Your location"
+            label="You"
             placeholder="Where are you?"
-            onChangeText={(personOneLocation) => this.setState({personOneLocation})}
+            onChangeText={(personOneLocation) => this.setState({ personOneLocation })}
           />
         </CardSection>
 
         <CardSection>
             <Input
-              label="Their location"
+              label="Them"
               placeholder="Where's your friend?"
-              onChangeText={(personTwoLocation) => this.setState({personTwoLocation})}
+              onChangeText={(personTwoLocation) => this.setState({ personTwoLocation })}
             />
         </CardSection>
 
