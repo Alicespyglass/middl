@@ -16,6 +16,7 @@
     "react-native-router-flux": "^3.39.1"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.8.1",
     "babel-jest": "20.0.3",
     "babel-preset-react-native": "1.9.2",
     "enzyme": "^2.8.2",

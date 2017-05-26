@@ -4,13 +4,12 @@ import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import { Card, CardSection, Button } from './common';
 
-// <MapView.Polyline coordinates={this.state.route} strokeColor={'#55C2DD'} strokeWidth={4}/>
 class ResultsPage extends Component {
   state = {}
 
   async componentDidMount() {
-    const firstRequest = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p1)
-    const secondRequest = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2)
+    const firstRequest = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p1);
+    const secondRequest = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2);
 
     this.setState({
       lat1: firstRequest.data.results[0].geometry.location.lat,
@@ -21,11 +20,6 @@ class ResultsPage extends Component {
   }
 
   handleGetDirections(lat1, lng1, lat2, lng2) {
-    console.log(lat1)
-    console.log(lng1)
-    console.log(lat2)
-    console.log(lng2)
-
     const data = {
        source: {
         latitude: lat1,
@@ -47,14 +41,15 @@ class ResultsPage extends Component {
 }
 
   render() {
-
-
     return (<View style={styles.container}>
       <Card>
         <CardSection>
           <Button
-          accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={this.handleGetDirections(this.state.lat1, this.state.lng1, this.state.lat2, this.state.lng2)}
+          onPress={() =>
+            this.handleGetDirections(this.state.lat1,
+                                    this.state.lng1,
+                                    this.state.lat2,
+                                    this.state.lng2)}
           >
             Get Directions
           </Button>

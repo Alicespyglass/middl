@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 0,
+        "borderColor": "#ddd",
+        "borderRadius": 2,
+        "borderWidth": 1,
+        "elevation": 1,
+        "marginLeft": 5,
+        "marginRight": 5,
+        "marginTop": 10,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.1,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#fff",
+            "borderBottomWidth": 1,
+            "borderColor": "#ddd",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "padding": 5,
+            "position": "relative",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignSelf": "stretch",
+            "backgroundColor": "#fff",
+            "borderColor": "#007aff",
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "flex": 1,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignSelf": "center",
+              "color": "#007aff",
+              "fontSize": 16,
+              "fontWeight": "600",
+              "paddingBottom": 10,
+              "paddingTop": 10,
+            }
+          }
+        >
+          Get Directions
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
