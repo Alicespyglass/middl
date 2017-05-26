@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "react": "16.0.0-alpha.6",
+    "react-iframe": "^1.0.5",
     "react-native": "0.44.0",
     "react-native-maps": "^0.15.2",
     "react-native-router-flux": "^3.39.1"
@@ -24,13 +25,11 @@
     "react-dom": "^15.5.4",
     "react-test-renderer": "^16.0.0-alpha.6"
   },
-
   "jest": {
     "preset": "react-native",
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
     "setupFiles": [
       "./jest/setup.js"
-  ]
-
+    ]
   }
 }
