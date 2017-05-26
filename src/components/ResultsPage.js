@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Card, CardSection, Button } from './common';
-import axios from 'axios';
 import getDirections from 'react-native-google-maps-directions';
+import axios from 'axios';
+import { Card, CardSection, Button } from './common';
 
 // <MapView.Polyline coordinates={this.state.route} strokeColor={'#55C2DD'} strokeWidth={4}/>
 class ResultsPage extends Component {
-  state = { p1Location: null }
+  state = {}
 
-  componentWillMount() {
-    axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p1)
-      .then(response => this.setState({ p1Location: response.data }))
-        .then(response => this.setState({ p1Id: this.state.p1Location.results["0"].place_id }))
-      .then(response => axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2)
-        .then(response => this.setState({ p2Location: response.data })))
-        .then(response => this.setState({ p2Id: this.state.p2Location.results["0"].place_id }))
-        .then(response => axios.get('https://maps.googleapis.com/maps/api/directions/json?origin=place_id:' + this.state.p1Id + '&destination=place_id:' + this.state.p2Id + '&key=AIzaSyDWck9QLMxciHSmTpLCjeohqFLksN6qZHU')
-          .then(response => this.setState({ route: response.data })));
+  async componentDidMount() {
+    const firstRequest = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p1)
+    const secondRequest = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2)
+
+    this.setState({
+      lat1: firstRequest.data.results[0].geometry.location.lat,
+      lng1: firstRequest.data.results[0].geometry.location.lng,
+      lat2: secondRequest.data.results[0].geometry.location.lat,
+      lng2: secondRequest.data.results[0].geometry.location.lng
+    });
   }
 
-  handleGetDirections() {
+  handleGetDirections(lat1, lng1, lat2, lng2) {
+    console.log(lat1)
+    console.log(lng1)
+    console.log(lat2)
+    console.log(lng2)
+
     const data = {
        source: {
-        latitude: 51.5463,
-        longitude: 0.0573
+        latitude: lat1,
+        longitude: lng1
       },
       destination: {
-        latitude: 51.5175,
-        longitude: 0.0733
+        latitude: lat2,
+        longitude: lng2
       },
       params: [
         {
@@ -41,7 +47,6 @@ class ResultsPage extends Component {
 }
 
   render() {
-      // console.log(this.state.route.routes.overview_polyline.points);
 
 
     return (<View style={styles.container}>
@@ -49,9 +54,9 @@ class ResultsPage extends Component {
         <CardSection>
           <Button
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={this.handleGetDirections}
+          onPress={this.handleGetDirections(this.state.lat1, this.state.lng1, this.state.lat2, this.state.lng2)}
           >
-            GO
+            Get Directions
           </Button>
         </CardSection>
       </Card>
