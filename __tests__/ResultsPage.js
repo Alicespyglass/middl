@@ -36,7 +36,7 @@ describe('<ResultsPage />', () => {
       expect(wrapper.find(CardSection).length).toBe(1);
   });
 
-  it('calls the API correctly', () => {
+  it('mocks the API correctly', () => {
     axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=%22E9%205QQ%22')
       .then(function(response) {
         expect(response.data).toBe("{ users: [ { id: 1, name: 'Freddy' } ] }");
