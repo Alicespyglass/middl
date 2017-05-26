@@ -8,7 +8,11 @@ class ResultsPage extends Component {
 
   componentWillMount() {
     axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p1)
-      .then(response => this.setState({ p1Location: response.data }))
+      .then(response => {
+        this.setState({ p1Location: response.data });
+        this.setState({ p1Latitude: response.data.results['0'].geometry.location.lat});
+        this.setState({ p1Longitude: response.data.results['0'].geometry.location.lng});
+      })
         .then(response => this.setState({ p1Id: this.state.p1Location.results["0"].place_id }))
       .then(response => axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2)
         .then(response => this.setState({ p2Location: response.data })))
@@ -18,21 +22,22 @@ class ResultsPage extends Component {
   }
 
   render() {
+    {console.log(this.state.p1Latitude)}
     return (<View style={styles.container}>
 
       <View style={styles.mapContainer}>
         <MapView
           style={styles.map}
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+            latitude: 51.5173,
+            longitude: 0.0733,
             latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            longitudeDelta: 0.0421
           }}>
           <MapView.Marker
             coordinate={{
-              latitude: 37.78825,
-              longitude: -122.4324
+              latitude: this.state.p1Latitude,
+              longitude: this.state.p1Longitude
             }}>
               <View>
                 <View style={styles.marker} />
