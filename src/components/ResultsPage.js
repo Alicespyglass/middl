@@ -15,7 +15,12 @@ class ResultsPage extends Component {
       })
         .then(response => this.setState({ p1Id: this.state.p1Location.results["0"].place_id }))
       .then(response => axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2)
-        .then(response => this.setState({ p2Location: response.data })))
+        .then(response => {
+          this.setState({ p2Location: response.data })
+          this.setState({ p2Latitude: response.data.results['0'].geometry.location.lat});
+          this.setState({ p2Longitude: response.data.results['0'].geometry.location.lng});
+      })
+    )
         .then(response => this.setState({ p2Id: this.state.p2Location.results["0"].place_id }))
         .then(response => axios.get('https://maps.googleapis.com/maps/api/directions/json?origin=place_id:' + this.state.p1Id + '&destination=place_id:' + this.state.p2Id + '&key=AIzaSyDWck9QLMxciHSmTpLCjeohqFLksN6qZHU')
           .then(response => this.setState({ route: response.data })));
@@ -23,6 +28,9 @@ class ResultsPage extends Component {
 
   render() {
     {console.log(this.state.p1Latitude)}
+    {console.log(this.state.p2Latitude)}
+
+
     return (<View style={styles.container}>
 
       <View style={styles.mapContainer}>
@@ -53,6 +61,13 @@ class ResultsPage extends Component {
     </View>);
   }
 }
+
+const midwayPoint = (lon, lat) => {
+  let halfLat = this.state.p1Latitude + this.state.p2Latitude
+  this.setState({ lat2: halfLat })
+};
+
+
 
 const styles = StyleSheet.create({
   marker: {
