@@ -135,7 +135,7 @@ class ResultsPage extends Component {
 
         <CardSection>
           <Text>
-            Venue 1
+            {this.state.top3venues[0].name}
           </Text>
         </CardSection>
 
@@ -155,9 +155,9 @@ class ResultsPage extends Component {
       <Card>
 
         <CardSection>
-          <Text>
-            Venue 2
-          </Text>
+        <Text>
+          {this.state.top3venues[1].name}
+        </Text>
         </CardSection>
 
         <CardSection>
@@ -176,9 +176,9 @@ class ResultsPage extends Component {
       <Card>
 
         <CardSection>
-          <Text>
-            Venue 3
-          </Text>
+        <Text>
+          {this.state.top3venues[2].name}
+        </Text>
         </CardSection>
 
         <CardSection>
