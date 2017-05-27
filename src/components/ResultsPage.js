@@ -31,8 +31,9 @@ class ResultsPage extends Component {
     )
     // Calculate midpoint between user and friend => [lat, lng]
     .then(response => { this.midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude) })
+
     // Google Places API to find places (coffee) within 500m radius of midPoint => array
-    .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.midDeg + '&radius=500&type=coffee&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY')
+    .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&type=coffee&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY')
       .then(response => {
         this.setState({ midPlaces: response.data });
         this.setState({ midPlaceOneId: response.data.results["0"].place_id });
@@ -70,6 +71,8 @@ class ResultsPage extends Component {
     this.setState({ lat2: lat, lng2: lng });
   }
 
+  // midpoint used to be midDeg
+
   placesIdArray() {
     const placesArray = this.state.midPlaces.results;
     const idArray = [];
@@ -102,12 +105,12 @@ class ResultsPage extends Component {
 
   render() {
     console.log("p1 Latitude: ", Object.prototype.toString.call(this.state.p1Latitude))
-    console.log("midDeg: ", Object.prototype.toString.call(this.state.midDeg))
+    console.log("midlat2: ", Object.prototype.toString.call(this.state.lat2))
     console.log("end to end route: ", this.state.route)
-    console.log("Lat1: ", this.state.p1Latitude)
-    console.log("Lon2: ", this.state.p1Longitude)
-    console.log("Lat1: ", this.state.p2Latitude)
-    console.log("Lon2: ", this.state.p2Longitude)
+    console.log("P1Lat: ", this.state.p1Latitude)
+    console.log("P1Lon: ", this.state.p1Longitude)
+    console.log("P2Lat: ", this.state.p2Latitude)
+    console.log("P2Lon: ", this.state.p2Longitude)
     console.log("midDeg:", this.state.midDeg)
     console.log("start id:", this.state.p1Id)
     console.log("end id:", this.state.p2Id)
