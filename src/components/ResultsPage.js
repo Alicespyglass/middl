@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import { Card, CardSection, Button } from './common';
@@ -106,6 +106,7 @@ class ResultsPage extends Component {
 }
 
   render() {
+    console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
     console.log("p1 Latitude: ", Object.prototype.toString.call(this.state.p1Latitude))
     console.log("midlat2: ", Object.prototype.toString.call(this.state.lat2))
     console.log("end to end route: ", this.state.route)
@@ -124,6 +125,55 @@ class ResultsPage extends Component {
 
     return (<View style={styles.container}>
       <Card>
+
+        <CardSection>
+          <Text>
+            Venue 1
+          </Text>
+        </CardSection>
+
+        <CardSection>
+          <Button
+          onPress={() =>
+            this.handleGetDirections(this.state.p1Latitude,
+                                    this.state.p1Longitude,
+                                    this.state.lat2,
+                                    this.state.lng2)}
+          >
+            Get Directions
+          </Button>
+        </CardSection>
+      </Card>
+
+      <Card>
+
+        <CardSection>
+          <Text>
+            Venue 2
+          </Text>
+        </CardSection>
+
+        <CardSection>
+          <Button
+          onPress={() =>
+            this.handleGetDirections(this.state.p1Latitude,
+                                    this.state.p1Longitude,
+                                    this.state.lat2,
+                                    this.state.lng2)}
+          >
+            Get Directions
+          </Button>
+        </CardSection>
+      </Card>
+
+      <Card>
+
+        <CardSection>
+          <Text>
+            Venue 3
+          </Text>
+        </CardSection>
+
         <CardSection>
           <Button
           onPress={() =>
