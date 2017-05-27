@@ -42,6 +42,7 @@ class ResultsPage extends Component {
 
     // Pull ratings from places
     .then(response => { this.placesRatingsArray() })
+    // .then(response => { this.})
 
     // Google Directions API to get route from user to place by public transport
     .then(response => axios.get('https://maps.googleapis.com/maps/api/directions/json?&origin=place_id:' + this.state.p1Id + '&destination=place_id:' + this.state.midPlaceOneId + '&mode=transit&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY')
@@ -73,15 +74,14 @@ class ResultsPage extends Component {
     this.setState({ lat2: lat, lng2: lng });
   }
 
-  // midpoint used to be midDeg
 
   placesRatingsArray() {
-    const placesArray = this.state.midPlaces.results;
-    const idArray = [];
-    for (let i = 0; i < placesArray.length; i++) {
-        idArray.push(placesArray[i].rating);
-      }
-    this.setState({ placeA: idArray });
+    const ratArray = this.state.midPlaces.results;
+    const ratArrayNoUndefined = ratArray.filter(function(n){ return n.rating !== undefined })
+    const sortedArray = ratArrayNoUndefined.sort(function(a,b) {
+      return b.rating - a.rating;
+    });
+    this.setState({ ratingsArray: sortedArray });
   }
 
   handleGetDirections(lat1, lng1, lat2, lng2) {
@@ -119,7 +119,7 @@ class ResultsPage extends Component {
     console.log('midPlaces: ', this.state.midPlaces)
     console.log('midPlaces[0]_id: ', this.state.midPlaceOneId)
     console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
-    console.log('places array: ', this.state.placeA)
+    console.log('places array: ', this.state.ratingsArray)
 
 
     return (<View style={styles.container}>
