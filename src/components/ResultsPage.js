@@ -1,50 +1,60 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import MapView from 'react-native-maps';
+import { View, StyleSheet } from 'react-native';
+import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
+import { Card, CardSection, Button } from './common';
 
 class ResultsPage extends Component {
-  state = { p1Location: null }
+  state = {}
 
-  componentWillMount() {
-    axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p1)
-      .then(response => this.setState({ p1Location: response.data }))
-        .then(response => this.setState({ p1Id: this.state.p1Location.results["0"].place_id }))
-      .then(response => axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2)
-        .then(response => this.setState({ p2Location: response.data })))
-        .then(response => this.setState({ p2Id: this.state.p2Location.results["0"].place_id }))
-        .then(response => axios.get('https://maps.googleapis.com/maps/api/directions/json?origin=place_id:' + this.state.p1Id + '&destination=place_id:' + this.state.p2Id + '&key=AIzaSyDWck9QLMxciHSmTpLCjeohqFLksN6qZHU')
-          .then(response => this.setState({ route: response.data })));
+  async componentDidMount() {
+    const firstRequest = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p1);
+    const secondRequest = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2);
+
+    this.setState({
+      lat1: firstRequest.data.results[0].geometry.location.lat,
+      lng1: firstRequest.data.results[0].geometry.location.lng,
+      lat2: secondRequest.data.results[0].geometry.location.lat,
+      lng2: secondRequest.data.results[0].geometry.location.lng
+    });
   }
+
+  handleGetDirections(lat1, lng1, lat2, lng2) {
+    const data = {
+       source: {
+        latitude: lat1,
+        longitude: lng1
+      },
+      destination: {
+        latitude: lat2,
+        longitude: lng2
+      },
+      params: [
+        {
+          key: 'dirflg',
+          value: 'w'
+        }
+      ]
+    };
+
+    getDirections(data);
+}
 
   render() {
     return (<View style={styles.container}>
-
-      <View style={styles.mapContainer}>
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}>
-          <MapView.Marker
-            coordinate={{
-              latitude: 37.78825,
-              longitude: -122.4324
-            }}>
-              <View>
-                <View style={styles.marker} />
-              </View>
-            </MapView.Marker>
-
-          </MapView>
-      </View>
-
-      <View style={styles.textContainer}>
-      </View>
-
+      <Card>
+        <CardSection>
+          <Button
+          onPress={() =>
+            this.handleGetDirections(this.state.lat1,
+                                    this.state.lng1,
+                                    this.state.lat2,
+                                    this.state.lng2)}
+          >
+            Get Directions
+          </Button>
+        </CardSection>
+      </Card>
     </View>);
   }
 }
@@ -70,10 +80,10 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
   textContainer: {
-    flex: 1
+    flex: 2
   },
   mapContainer: {
-    flex: 1
+    flex: 6
   }
 })
 

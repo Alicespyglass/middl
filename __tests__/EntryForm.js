@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
-import EntryForm from '../src/components/EntryForm';
 import { shallow } from 'enzyme';
-import { Card, CardSection, Input } from '../src/components/common';
 import { View } from 'react-native';
+import EntryForm from '../src/components/EntryForm';
+import { Card, CardSection, Input } from '../src/components/common';
 import renderer from 'react-test-renderer';
 
 describe('<EntryForm />', () => {
@@ -21,7 +21,6 @@ describe('<EntryForm />', () => {
     const wrapper = shallow(<EntryForm />);
       expect(wrapper.find(Input).length).toBe(2);
   });
-
 });
 
 it('renders correctly', () => {
