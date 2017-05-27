@@ -31,15 +31,19 @@ class ResultsPage extends Component {
     )
     // Calculate midpoint between user and friend => [lat, lng]
     .then(response => { this.midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude) })
+
     // Google Places API to find places (coffee) within 500m radius of midPoint => array
-    .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.midDeg + '&radius=500&type=coffee&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY')
+    .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&type=coffee&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY')
       .then(response => {
         this.setState({ midPlaces: response.data });
         this.setState({ midPlaceOneId: response.data.results["0"].place_id });
       })
     )
 
-    .then(response => { this.placesIdArray() })
+    // Pull ratings from places
+    .then(response => { this.placesRatingsArray() })
+    // .then(response => { this.})
+
     // Google Directions API to get route from user to place by public transport
     .then(response => axios.get('https://maps.googleapis.com/maps/api/directions/json?&origin=place_id:' + this.state.p1Id + '&destination=place_id:' + this.state.midPlaceOneId + '&mode=transit&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY')
       .then(response => {
@@ -70,13 +74,14 @@ class ResultsPage extends Component {
     this.setState({ lat2: lat, lng2: lng });
   }
 
-  placesIdArray() {
-    const placesArray = this.state.midPlaces.results;
-    const idArray = [];
-    for (let i = 0; i < placesArray.length; i++) {
-        idArray.push(placesArray[i].place_id);
-      }
-    this.setState({ placeA: idArray });
+
+  placesRatingsArray() {
+    const ratArray = this.state.midPlaces.results;
+    const ratArrayNoUndefined = ratArray.filter(function(n){ return n.rating !== undefined })
+    const sortedArray = ratArrayNoUndefined.sort(function(a,b) {
+      return b.rating - a.rating;
+    });
+    this.setState({ ratingsArray: sortedArray });
   }
 
   handleGetDirections(lat1, lng1, lat2, lng2) {
@@ -102,6 +107,20 @@ class ResultsPage extends Component {
 
   render() {
     console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
+    console.log("p1 Latitude: ", Object.prototype.toString.call(this.state.p1Latitude))
+    console.log("midlat2: ", Object.prototype.toString.call(this.state.lat2))
+    console.log("end to end route: ", this.state.route)
+    console.log("P1Lat: ", this.state.p1Latitude)
+    console.log("P1Lon: ", this.state.p1Longitude)
+    console.log("P2Lat: ", this.state.p2Latitude)
+    console.log("P2Lon: ", this.state.p2Longitude)
+    console.log("midDeg:", this.state.midDeg)
+    console.log("start id:", this.state.p1Id)
+    console.log("end id:", this.state.p2Id)
+    console.log('midPlaces: ', this.state.midPlaces)
+    console.log('midPlaces[0]_id: ', this.state.midPlaceOneId)
+    console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
+    console.log('places array: ', this.state.ratingsArray)
 
 
     return (<View style={styles.container}>
