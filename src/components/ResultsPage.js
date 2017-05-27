@@ -51,73 +51,33 @@ class ResultsPage extends Component {
   }
 
   midpoint(lat1, lng1, lat2, lng2) {
-    let rad = (Math.PI)/180
-    let rlat1 = lat1 * rad;
-    let rlng1 = lng1 * rad;
-    let rlat2 = lat2 * rad;
-    let rlng2 = lng2 * rad;
+    const rad = (Math.PI) / 180;
+    const rlat1 = lat1 * rad;
+    const rlng1 = lng1 * rad;
+    const rlat2 = lat2 * rad;
+    const rlng2 = lng2 * rad;
 
-    let dlng = rlng2 - rlng1;
-    let Bx = Math.cos(rlat2) * Math.cos(dlng);
-    let By = Math.cos(rlat2) * Math.sin(dlng);
+    const dlng = rlng2 - rlng1;
+    const Bx = Math.cos(rlat2) * Math.cos(dlng);
+    const By = Math.cos(rlat2) * Math.sin(dlng);
 
-    let lat3 = Math.atan2(Math.sin(rlat1) + Math.sin(rlat2),
+    const lat3 = Math.atan2(Math.sin(rlat1) + Math.sin(rlat2),
               Math.sqrt(((Math.cos(rlat1) + Bx) * (Math.cos(rlat1) + Bx)) + (By * By)));
-    let lng3 = rlng1 + Math.atan2(By, (Math.cos(rlat1) + Bx));
+    const lng3 = rlng1 + Math.atan2(By, (Math.cos(rlat1) + Bx));
 
-    let lat = (lat3 * 180) / Math.PI;
-    let lng = (lng3 * 180)/ Math.PI;
-    this.setState({ midDeg: [lat, lng] });
+    const lat = (lat3 * 180) / Math.PI;
+    const lng = (lng3 * 180) / Math.PI;
+    this.setState({ lat2: lat, lng2: lng });
   }
 
   placesIdArray() {
-    let placesArray = this.state.midPlaces.results
-    let idArray = []
+    const placesArray = this.state.midPlaces.results;
+    const idArray = [];
     for (let i = 0; i < placesArray.length; i++) {
-        idArray.push(placesArray[i].place_id)
+        idArray.push(placesArray[i].place_id);
       }
     this.setState({ placeA: idArray });
   }
-
-  render() {
-    console.log("p1 Latitude: ", Object.prototype.toString.call(this.state.p1Latitude))
-    console.log("midDeg: ", Object.prototype.toString.call(this.state.midDeg))
-    console.log("end to end route: ", this.state.route)
-    console.log("Lat1: ", this.state.p1Latitude)
-    console.log("Lon2: ", this.state.p1Longitude)
-    console.log("Lat1: ", this.state.p2Latitude)
-    console.log("Lon2: ", this.state.p2Longitude)
-    console.log("midDeg:", this.state.midDeg)
-    console.log("start id:", this.state.p1Id)
-    console.log("end id:", this.state.p2Id)
-    console.log('midPlaces: ', this.state.midPlaces)
-    console.log('midPlaces[0]_id: ', this.state.midPlaceOneId)
-    console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
-    console.log('places array: ', this.state.placeA)
-
-
-    return (<View style={styles.container}>
-
-      <View style={styles.mapContainer}>
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: 51.5173,
-            longitude: 0.0733,
-            latitudeDelta: 0.09,
-            longitudeDelta: 0.0421
-          }}>
-          <MapView.Marker
-            coordinate={{
-              latitude: this.state.p1Latitude,
-              longitude: this.state.p1Longitude
-              // latitude: 51.5173,
-              // longitude: 0.0733
-            }}>
-              <View>
-                <View style={styles.marker} />
-              </View>
-            </MapView.Marker>
 
   handleGetDirections(lat1, lng1, lat2, lng2) {
     const data = {
@@ -141,13 +101,29 @@ class ResultsPage extends Component {
 }
 
   render() {
+    console.log("p1 Latitude: ", Object.prototype.toString.call(this.state.p1Latitude))
+    console.log("midDeg: ", Object.prototype.toString.call(this.state.midDeg))
+    console.log("end to end route: ", this.state.route)
+    console.log("Lat1: ", this.state.p1Latitude)
+    console.log("Lon2: ", this.state.p1Longitude)
+    console.log("Lat1: ", this.state.p2Latitude)
+    console.log("Lon2: ", this.state.p2Longitude)
+    console.log("midDeg:", this.state.midDeg)
+    console.log("start id:", this.state.p1Id)
+    console.log("end id:", this.state.p2Id)
+    console.log('midPlaces: ', this.state.midPlaces)
+    console.log('midPlaces[0]_id: ', this.state.midPlaceOneId)
+    console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
+    console.log('places array: ', this.state.placeA)
+
+
     return (<View style={styles.container}>
       <Card>
         <CardSection>
           <Button
           onPress={() =>
-            this.handleGetDirections(this.state.lat1,
-                                    this.state.lng1,
+            this.handleGetDirections(this.state.p1Latitude,
+                                    this.state.p1Longitude,
                                     this.state.lat2,
                                     this.state.lng2)}
           >
@@ -156,8 +132,8 @@ class ResultsPage extends Component {
         </CardSection>
       </Card>
     </View>);
+    }
   }
-}
 
 const styles = StyleSheet.create({
   marker: {
@@ -185,6 +161,6 @@ const styles = StyleSheet.create({
   mapContainer: {
     flex: 6
   }
-})
+});
 
 export default ResultsPage;
