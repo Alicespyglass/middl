@@ -40,7 +40,9 @@ class ResultsPage extends Component {
       })
     )
 
-    .then(response => { this.placesIdArray() })
+    // Pull ratings from places
+    .then(response => { this.placesRatingsArray() })
+
     // Google Directions API to get route from user to place by public transport
     .then(response => axios.get('https://maps.googleapis.com/maps/api/directions/json?&origin=place_id:' + this.state.p1Id + '&destination=place_id:' + this.state.midPlaceOneId + '&mode=transit&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY')
       .then(response => {
@@ -73,11 +75,11 @@ class ResultsPage extends Component {
 
   // midpoint used to be midDeg
 
-  placesIdArray() {
+  placesRatingsArray() {
     const placesArray = this.state.midPlaces.results;
     const idArray = [];
     for (let i = 0; i < placesArray.length; i++) {
-        idArray.push(placesArray[i].place_id);
+        idArray.push(placesArray[i].rating);
       }
     this.setState({ placeA: idArray });
   }
