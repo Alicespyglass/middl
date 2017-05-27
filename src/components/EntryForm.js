@@ -19,6 +19,7 @@ class EntryForm extends Component {
 
     return (
       <View style={styles.container}>
+
       <Card>
         <CardSection>
           <Input
@@ -41,7 +42,25 @@ class EntryForm extends Component {
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
           onPress={goToResultsPage}
           >
-            GO
+            Cafe
+          </Button>
+        </CardSection>
+
+        <CardSection>
+          <Button
+          accessibilityLabel='Click this button to find somewhere you and your friend can meet'
+          onPress={goToResultsPage}
+          >
+            Bar
+          </Button>
+        </CardSection>
+
+        <CardSection>
+          <Button
+          accessibilityLabel='Click this button to find somewhere you and your friend can meet'
+          onPress={goToResultsPage}
+          >
+            Park
           </Button>
         </CardSection>
       </Card>
