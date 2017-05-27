@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "dms-conversion": "^3.0.0",
     "react": "16.0.0-alpha.6",
     "react-iframe": "^1.0.5",
     "react-native": "0.44.0",
