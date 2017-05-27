@@ -13,7 +13,10 @@
     "react-native": "0.44.0",
     "react-native-google-maps-directions": "^1.1.0",
     "react-native-maps": "^0.15.2",
-    "react-native-router-flux": "^3.39.1"
+    "react-native-places-autocomplete": "^1.5.2",
+    "react-native-router-flux": "^3.39.1",
+    "react-native-search-bar": "^3.0.0",
+    "react-native-vector-icons": "^4.0.1"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.8.1",
