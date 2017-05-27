@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Card, CardSection, Input, Button } from './common'
-
 import { Actions } from 'react-native-router-flux';
+import { Card, CardSection, Input, Button } from './common';
 
 class EntryForm extends Component {
   constructor() {
@@ -13,7 +12,6 @@ class EntryForm extends Component {
   }
 
   render() {
-
     const goToResultsPage = () => {
     Actions.results({ p1: this.state.personOneLocation,
       p2: this.state.personTwoLocation });

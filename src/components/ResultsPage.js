@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import MapView from 'react-native-maps';
+import { View, StyleSheet } from 'react-native';
+import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
+import { Card, CardSection, Button } from './common';
 
 class ResultsPage extends Component {
-  state = { p1Location: null}
+  state = {}
 
   componentWillMount() {
     // Google Geocode API to get user address lat, lng, id => object
@@ -118,12 +119,42 @@ class ResultsPage extends Component {
               </View>
             </MapView.Marker>
 
-          </MapView>
-      </View>
+  handleGetDirections(lat1, lng1, lat2, lng2) {
+    const data = {
+       source: {
+        latitude: lat1,
+        longitude: lng1
+      },
+      destination: {
+        latitude: lat2,
+        longitude: lng2
+      },
+      params: [
+        {
+          key: 'dirflg',
+          value: 'w'
+        }
+      ]
+    };
 
-      <View style={styles.textContainer}>
-      </View>
+    getDirections(data);
+}
 
+  render() {
+    return (<View style={styles.container}>
+      <Card>
+        <CardSection>
+          <Button
+          onPress={() =>
+            this.handleGetDirections(this.state.lat1,
+                                    this.state.lng1,
+                                    this.state.lat2,
+                                    this.state.lng2)}
+          >
+            Get Directions
+          </Button>
+        </CardSection>
+      </Card>
     </View>);
   }
 }
@@ -149,10 +180,10 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
   textContainer: {
-    flex: 1
+    flex: 2
   },
   mapContainer: {
-    flex: 1
+    flex: 6
   }
 })
 
