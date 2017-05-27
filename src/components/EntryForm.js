@@ -70,8 +70,6 @@ class EntryForm extends Component {
 
   }
 
-
-
 }
 
 const styles = StyleSheet.create({
