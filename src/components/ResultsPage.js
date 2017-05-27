@@ -43,6 +43,13 @@ class ResultsPage extends Component {
     // Pull ratings from places
     .then(response => { this.placesRatingsArray() })
     .then(response => { this.top3RatedArray() })
+    .then(response => {
+      this.setState({ name1: this.state.top3venues[0].name })
+      this.setState({ name2: this.state.top3venues[1].name })
+      this.setState({ name3: this.state.top3venues[2].name })
+    })
+
+
     // .then(response => { this.})
 
     // Google Directions API to get route from user to place by public transport
@@ -128,6 +135,7 @@ class ResultsPage extends Component {
     console.log('places array: ', this.state.ratingsArray)
     console.log('type:', this.props.type)
     console.log('top 3 venues array', this.state.top3venues)
+    console.log('Place 1 name: ', this.state.place1name)
 
 
     return (<View style={styles.container}>
@@ -135,7 +143,7 @@ class ResultsPage extends Component {
 
         <CardSection>
           <Text>
-            Venue 1
+            {this.state.name1}
           </Text>
         </CardSection>
 
@@ -156,7 +164,7 @@ class ResultsPage extends Component {
 
         <CardSection>
           <Text>
-            Venue 2
+            {this.state.name2}
           </Text>
         </CardSection>
 
@@ -177,7 +185,7 @@ class ResultsPage extends Component {
 
         <CardSection>
           <Text>
-            Venue 3
+            {this.state.name3}
           </Text>
         </CardSection>
 
