@@ -42,6 +42,7 @@ class ResultsPage extends Component {
 
     // Pull ratings from places
     .then(response => { this.placesRatingsArray() })
+    .then(response => { this.top3RatedArray() })
     // .then(response => { this.})
 
     // Google Directions API to get route from user to place by public transport
@@ -50,8 +51,7 @@ class ResultsPage extends Component {
         this.setState({ midPlacesRoute: response.data });
       })
     )
-
-      ;
+    ;
   }
 
   midpoint(lat1, lng1, lat2, lng2) {
@@ -82,6 +82,11 @@ class ResultsPage extends Component {
       return b.rating - a.rating;
     });
     this.setState({ ratingsArray: sortedArray });
+  }
+
+  top3RatedArray() {
+    const topvenues = this.state.ratingsArray.slice(0, 3);
+    this.setState({ top3venues: topvenues });
   }
 
   handleGetDirections(lat1, lng1, lat2, lng2) {
@@ -121,6 +126,8 @@ class ResultsPage extends Component {
     console.log('midPlaces[0]_id: ', this.state.midPlaceOneId)
     console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
     console.log('places array: ', this.state.ratingsArray)
+    console.log('type:', this.props.type)
+    console.log('top 3 venues array', this.state.top3venues)
 
 
     return (<View style={styles.container}>
