@@ -39,6 +39,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* middlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* middlTests.m */; };
 		5DFC00A1CD9E444785A7E0FE /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF464B0939D24CBC909D7917 /* Foundation.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		6255B8251EDB636D002D47CC /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6255B8241EDB636D002D47CC /* Images-2.xcassets */; };
 		68AE3D0CF8664C039A2B0250 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9942807CE2448868B54934C /* Entypo.ttf */; };
 		73078CE4EC8A448DB00F1170 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97AED898C49844A5ABE0A637 /* libRNVectorIcons.a */; };
 		7309204A19934B90B6CDE749 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2965ED65D4549A8801344F2 /* Ionicons.ttf */; };
@@ -289,6 +290,7 @@
 		2D02E4901E0B4A5D006451C7 /* middl-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "middl-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A386FB054C4B23B5FD41F3 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		6255B8241EDB636D002D47CC /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "middl/Images-2.xcassets"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		84F49E8A6D034464A2DBE5B3 /* RNSearchBar.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSearchBar.xcodeproj; path = "../node_modules/react-native-search-bar/RNSearchBar.xcodeproj"; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				6255B8241EDB636D002D47CC /* Images-2.xcassets */,
 			);
 			name = middl;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				6255B8251EDB636D002D47CC /* Images-2.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				68AE3D0CF8664C039A2B0250 /* Entypo.ttf in Resources */,
 				0B6FC04ACF2E4C14B1EFB435 /* EvilIcons.ttf in Resources */,
@@ -1163,6 +1167,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = Launchimage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1188,6 +1193,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = Launchimage;
 				CURRENT_PROJECT_VERSION = 1;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
