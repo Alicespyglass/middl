@@ -8,13 +8,14 @@ class EntryForm extends Component {
     super();
     this.state = { personOneLocation: null,
     personTwoLocation: null,
+    loading: false
     };
   }
 
   render() {
     const goToResultsPage = () => {
     Actions.results({ p1: this.state.personOneLocation,
-      p2: this.state.personTwoLocation,
+      p2: this.state.personTwoLocation
       });
     };
 
