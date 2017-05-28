@@ -47,15 +47,12 @@ class ResultsPage extends Component {
       this.setState({ name1: this.state.top3venues[0].name });
       this.setState({ type1: this.state.top3venues[0].types[0] });
       this.setState({ address1: this.state.top3venues[0].vicinity });
-      this.setState({ photo1: this.state.top3venues[0].photos[0].html_attributions[0] });
       this.setState({ name2: this.state.top3venues[1].name });
       this.setState({ type2: this.state.top3venues[1].types[0] });
       this.setState({ address2: this.state.top3venues[1].vicinity });
-      this.setState({ photo2: this.state.top3venues[1].photos[0].html_attributions[0] });
       this.setState({ name3: this.state.top3venues[2].name });
       this.setState({ type3: this.state.top3venues[2].types[0] });
       this.setState({ address3: this.state.top3venues[2].vicinity });
-      this.setState({ photo3: this.state.top3venues[2].photos[0].html_attributions[0] });
     })
 
 
@@ -118,7 +115,7 @@ class ResultsPage extends Component {
       params: [
         {
           key: 'dirflg',
-          value: 'w'
+          value: 'r'
         }
       ]
     };
@@ -144,7 +141,6 @@ class ResultsPage extends Component {
     console.log('places array: ', this.state.ratingsArray)
     console.log('type:', this.props.type)
     console.log('top 3 venues array', this.state.top3venues)
-    console.log('photo url', this.props.photo1)
 
 
     return (<View style={styles.container}>
