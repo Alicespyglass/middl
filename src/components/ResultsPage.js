@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, WebView } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import { Card, CardSection, Button } from './common';

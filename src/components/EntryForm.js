@@ -68,9 +68,7 @@ class EntryForm extends Component {
       </Card>
       </View>
     );
-
   }
-
 }
 
 const styles = StyleSheet.create({
