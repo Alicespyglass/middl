@@ -27,10 +27,10 @@ class EntryForm extends Component {
       });
     };
 
-    const goToResultsPagePark = () => {
+    const goToResultsPageRestaurant = () => {
     Actions.results({ p1: this.state.personOneLocation,
       p2: this.state.personTwoLocation,
-      placeType: 'park'
+      placeType: 'restaurant'
       });
     };
 
@@ -75,9 +75,9 @@ class EntryForm extends Component {
         <CardSection>
           <Button
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={goToResultsPagePark}
+          onPress={goToResultsPageRestaurant}
           >
-            Park
+            Restaurant
           </Button>
         </CardSection>
       </Card>
