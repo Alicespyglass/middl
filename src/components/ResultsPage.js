@@ -122,8 +122,10 @@ class ResultsPage extends Component {
     getDirections(data);
   }
 
-  createWhatsappUrl() {
-    this.setState(whatsappUrl: 'https://api.whatsapp.com/send?text=hello')
+  whatsapp() {
+    const endPoint =
+    'https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[0].name + ' on ' + this.state.top3venues[0].vicinity + '. 😘'
+    return endPoint
   }
 
   render() {
@@ -178,8 +180,7 @@ class ResultsPage extends Component {
 
           <Button
             onPress={() =>
-              this.createWhatsappUrl()
-              Linking.openURL(this.state.whatsappUrl)}
+              Linking.openURL('https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[0].name + ' on ' + this.state.top3venues[0].vicinity + '. 😘')}
           >
           Message friend
           </Button>
@@ -214,6 +215,14 @@ class ResultsPage extends Component {
           >
             Get Directions
           </Button>
+
+          <Button
+            onPress={() =>
+              Linking.openURL('https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[1].name + ' on ' + this.state.top3venues[1].vicinity + '. 😘')}
+          >
+          Message friend
+          </Button>
+
         </CardSection>
       </Card>
 
@@ -245,6 +254,14 @@ class ResultsPage extends Component {
           >
             Get Directions
           </Button>
+
+          <Button
+            onPress={() =>
+              Linking.openURL('https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[2].name + ' on ' + this.state.top3venues[2].vicinity + '. 😘')}
+          >
+          Message friend
+          </Button>
+
         </CardSection>
       </Card>
     </View>);
