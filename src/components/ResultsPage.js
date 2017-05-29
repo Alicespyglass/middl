@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Linking } from 'react-native';
+import { View, Text, StyleSheet, Linking, Image } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import renderIf from 'render-if';
@@ -153,7 +153,9 @@ class ResultsPage extends Component {
     console.log('place 2 lng', this.props.place2lng)
 
 
-    return (<View style={styles.container}>
+    return (
+      <Image source={require('../assets/blurryTable.jpg')} style={styles.backgroundImage}>
+      <View style={styles.container}>
       {renderIf(this.state.name1)(
         <Card style={styles.card}>
         <CardSection style={styles.cardSection1}>
@@ -194,7 +196,7 @@ class ResultsPage extends Component {
 
 
       {renderIf(this.state.name2)(
-        <Card>
+        <Card style={styles.card}>
           <CardSection style={styles.cardSection2}>
             <Text style={styles.venueTitle}>
               {this.state.name2}
@@ -232,7 +234,7 @@ class ResultsPage extends Component {
       )}
 
       {renderIf(this.state.name3)(
-        <Card>
+        <Card style={styles.card}>
           <CardSection style={styles.cardSection3}>
             <Text style={styles.venueTitle}>
               {this.state.name3}
@@ -271,7 +273,9 @@ class ResultsPage extends Component {
         </Card>
       )}
 
-    </View>);
+    </View>
+    </Image>
+  );
     }
   }
 
@@ -304,10 +308,11 @@ const styles = StyleSheet.create({
   },
   venueTitle: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    // color: 'white'
   },
   cardSection1: {
-    // backgroundColor: '#ADFCF9'
+    // backgroundColor: 'rgba(52, 52, 52, 0.1)'
   },
   cardSection2: {
     // backgroundColor: '#8EB8E5'
@@ -316,7 +321,12 @@ const styles = StyleSheet.create({
     // backgroundColor: '#437C90'
   },
   card: {
-    borderWidth: 5
+    // backgroundColor: 'rgb(52, 52, 52)'
+  },
+  backgroundImage: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null
   }
 });
 
