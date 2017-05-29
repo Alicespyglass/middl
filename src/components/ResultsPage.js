@@ -164,12 +164,12 @@ class ResultsPage extends Component {
           </Text>
         </CardSection>
         <CardSection style={styles.cardSection1}>
-          <Text>
+          <Text style={styles.venueType}>
             {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
           </Text>
         </CardSection>
         <CardSection style={styles.cardSection1}>
-          <Text>
+          <Text style={styles.venueAddress}>
             {this.state.address1}
           </Text>
         </CardSection>
@@ -203,12 +203,12 @@ class ResultsPage extends Component {
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection2}>
-            <Text>
+            <Text style={styles.venueType}>
               {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection2}>
-            <Text>
+            <Text style={styles.venueAddress}>
               {this.state.address2}
             </Text>
           </CardSection>
@@ -241,12 +241,12 @@ class ResultsPage extends Component {
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection3}>
-            <Text>
+            <Text style={styles.venueType}>
               {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection3}>
-            <Text>
+            <Text style={styles.venueAddress}>
               {this.state.address3}
             </Text>
           </CardSection>
@@ -310,6 +310,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     // color: 'white'
+  },
+  venueType: {
+    // fontSize: 16
+  },
+  venueAddress: {
+    // fontSize: 16,
+    fontStyle: 'italic'
   },
   cardSection1: {
     // backgroundColor: 'rgba(52, 52, 52, 0.1)'
