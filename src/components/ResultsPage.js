@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Linking } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import renderIf from 'render-if';
-import { Card, CardSection, Button } from './common';
+import { Card, CardSection, Button, Midpoint, PlacesRating } from './common';
 
 class ResultsPage extends Component {
   state = {}
@@ -31,7 +31,7 @@ class ResultsPage extends Component {
       .then(response => this.setState({ route: response.data }))
     )
     // Calculate midpoint between user and friend => [lat, lng]
-    .then(response => { this.midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude) })
+    .then(response => { this.setState(Midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude)) })
 
     // Google Places API to find places (coffee) within 500m radius of midPoint => array
     .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&type=coffee&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY' + '&types=' + this.props.placeType)
@@ -42,7 +42,7 @@ class ResultsPage extends Component {
     )
 
     // Pull ratings from places
-    .then(response => { this.placesRatingsArray() })
+    .then(response => { this.setState(PlacesRating(this.state.midPlaces.results)) })
     .then(response => { this.top3RatedArray() })
     .then(response => {
       this.setState({ name1: this.state.top3venues[0].name });
@@ -68,36 +68,6 @@ class ResultsPage extends Component {
         this.setState({ midPlacesRoute: response.data });
       })
     );
-  }
-
-  midpoint(lat1, lng1, lat2, lng2) {
-    const rad = (Math.PI) / 180;
-    const rlat1 = lat1 * rad;
-    const rlng1 = lng1 * rad;
-    const rlat2 = lat2 * rad;
-    const rlng2 = lng2 * rad;
-
-    const dlng = rlng2 - rlng1;
-    const Bx = Math.cos(rlat2) * Math.cos(dlng);
-    const By = Math.cos(rlat2) * Math.sin(dlng);
-
-    const lat3 = Math.atan2(Math.sin(rlat1) + Math.sin(rlat2),
-              Math.sqrt(((Math.cos(rlat1) + Bx) * (Math.cos(rlat1) + Bx)) + (By * By)));
-    const lng3 = rlng1 + Math.atan2(By, (Math.cos(rlat1) + Bx));
-
-    const lat = (lat3 * 180) / Math.PI;
-    const lng = (lng3 * 180) / Math.PI;
-    this.setState({ lat2: lat, lng2: lng });
-  }
-
-
-  placesRatingsArray() {
-    const ratArray = this.state.midPlaces.results;
-    const ratArrayNoUndefined = ratArray.filter(function(n){ return n.rating !== undefined })
-    const sortedArray = ratArrayNoUndefined.sort(function(a,b) {
-      return b.rating - a.rating;
-    });
-    this.setState({ ratingsArray: sortedArray });
   }
 
   top3RatedArray() {
@@ -184,7 +154,7 @@ class ResultsPage extends Component {
 
           <Button
             onPress={() =>
-              Linking.openURL('https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[0].name + ' on ' + this.state.top3venues[0].vicinity + '. 😘')}
+              Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Lets meet at ${this.state.top3venues[0].name} on ${this.state.top3venues[0].vicinity} 😘`)}
           >
           Message friend
           </Button>
@@ -223,7 +193,7 @@ class ResultsPage extends Component {
             </Button>
             <Button
               onPress={() =>
-                Linking.openURL('https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[1].name + ' on ' + this.state.top3venues[1].vicinity + '. 😘')}
+                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Lets meet at ${this.state.top3venues[1].name} on ${this.state.top3venues[1].vicinity} 😘`)}
             >
             Message friend
             </Button>
@@ -263,7 +233,7 @@ class ResultsPage extends Component {
 
             <Button
               onPress={() =>
-                Linking.openURL('https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[2].name + ' on ' + this.state.top3venues[2].vicinity + '. 😘')}
+                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Lets meet at ${this.state.top3venues[2].name} on ${this.state.top3venues[2].vicinity} 😘`)}
             >
             Message friend
             </Button>
