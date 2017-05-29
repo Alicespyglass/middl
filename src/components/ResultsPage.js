@@ -155,23 +155,23 @@ class ResultsPage extends Component {
 
     return (<View style={styles.container}>
       {renderIf(this.state.name1)(
-        <Card>
-        <CardSection>
-          <Text>
+        <Card style={styles.card}>
+        <CardSection style={styles.cardSection1}>
+          <Text style={styles.venueTitle}>
             {this.state.name1}
           </Text>
         </CardSection>
-        <CardSection>
+        <CardSection style={styles.cardSection1}>
           <Text>
             {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
           </Text>
         </CardSection>
-        <CardSection>
+        <CardSection style={styles.cardSection1}>
           <Text>
             {this.state.address1}
           </Text>
         </CardSection>
-        <CardSection>
+        <CardSection style={styles.cardSection1}>
           <Button
           onPress={() =>
             this.handleGetDirections(this.state.p1Latitude,
@@ -195,22 +195,23 @@ class ResultsPage extends Component {
 
       {renderIf(this.state.name2)(
         <Card>
-          <CardSection>
-            <Text>
+          <CardSection style={styles.cardSection2}>
+            <Text style={styles.venueTitle}>
               {this.state.name2}
             </Text>
           </CardSection>
-          <CardSection>
+          <CardSection style={styles.cardSection2}>
             <Text>
               {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
             </Text>
-          </CardSection><CardSection>
+          </CardSection>
+          <CardSection style={styles.cardSection2}>
             <Text>
               {this.state.address2}
             </Text>
           </CardSection>
 
-          <CardSection>
+          <CardSection style={styles.cardSection2}>
             <Button
             onPress={() =>
               this.handleGetDirections(this.state.p1Latitude,
@@ -232,24 +233,24 @@ class ResultsPage extends Component {
 
       {renderIf(this.state.name3)(
         <Card>
-          <CardSection>
-            <Text>
+          <CardSection style={styles.cardSection3}>
+            <Text style={styles.venueTitle}>
               {this.state.name3}
             </Text>
           </CardSection>
-          <CardSection>
+          <CardSection style={styles.cardSection3}>
             <Text>
               {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
             </Text>
           </CardSection>
-          <CardSection>
+          <CardSection style={styles.cardSection3}>
             <Text>
               {this.state.address3}
             </Text>
           </CardSection>
 
 
-          <CardSection>
+          <CardSection style={styles.cardSection3}>
             <Button
             onPress={() =>
               this.handleGetDirections(this.state.p1Latitude,
@@ -285,7 +286,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#007AFF'
   },
   container: {
-    flex: 1
+    flex: 1,
+    // backgroundColor: '#6A8EAE'
   },
   map: {
     left: 25,
@@ -299,6 +301,22 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     flex: 6
+  },
+  venueTitle: {
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  cardSection1: {
+    // backgroundColor: '#ADFCF9'
+  },
+  cardSection2: {
+    // backgroundColor: '#8EB8E5'
+  },
+  cardSection: {
+    // backgroundColor: '#437C90'
+  },
+  card: {
+    borderWidth: 5
   }
 });
 

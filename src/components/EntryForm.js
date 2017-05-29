@@ -38,7 +38,7 @@ class EntryForm extends Component {
       <View style={styles.container}>
 
       <Card>
-        <CardSection>
+        <CardSection style={styles.cardSection}>
           <Input
             label="You"
             placeholder="Where are you?"
@@ -46,7 +46,7 @@ class EntryForm extends Component {
           />
         </CardSection>
 
-        <CardSection>
+        <CardSection style={styles.cardSection}>
             <Input
               label="Them"
               placeholder="Where's your friend?"
@@ -89,6 +89,9 @@ class EntryForm extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  cardSection: {
+    borderBottomWidth: 1
   }
 });
 
