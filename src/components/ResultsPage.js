@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Linking } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import { Card, CardSection, Button } from './common';
@@ -63,8 +63,7 @@ class ResultsPage extends Component {
       .then(response => {
         this.setState({ midPlacesRoute: response.data });
       })
-    )
-    ;
+    );
   }
 
   midpoint(lat1, lng1, lat2, lng2) {
@@ -121,7 +120,11 @@ class ResultsPage extends Component {
     };
 
     getDirections(data);
-}
+  }
+
+  createWhatsappUrl() {
+    this.setState(whatsappUrl: 'https://api.whatsapp.com/send?text=hello')
+  }
 
   render() {
     console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
@@ -172,6 +175,15 @@ class ResultsPage extends Component {
           >
             Get Directions
           </Button>
+
+          <Button
+            onPress={() =>
+              this.createWhatsappUrl()
+              Linking.openURL(this.state.whatsappUrl)}
+          >
+          Message friend
+          </Button>
+
         </CardSection>
       </Card>
 
