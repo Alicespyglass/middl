@@ -154,7 +154,7 @@ class ResultsPage extends Component {
 
 
     return (
-      <Image source={require('../assets/blurryTable.jpg')} style={styles.backgroundImage}>
+      <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
       {renderIf(this.state.name1)(
         <Card style={styles.card}>
