@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Linking } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import renderIf from 'render-if';
@@ -67,8 +67,7 @@ class ResultsPage extends Component {
       .then(response => {
         this.setState({ midPlacesRoute: response.data });
       })
-    )
-    ;
+    );
   }
 
   midpoint(lat1, lng1, lat2, lng2) {
@@ -125,7 +124,13 @@ class ResultsPage extends Component {
     };
 
     getDirections(data);
-}
+  }
+
+  whatsapp() {
+    const endPoint =
+    'https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[0].name + ' on ' + this.state.top3venues[0].vicinity + '. 😘'
+    return endPoint
+  }
 
   render() {
     console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
@@ -176,9 +181,17 @@ class ResultsPage extends Component {
           >
             Get Directions
           </Button>
+
+          <Button
+            onPress={() =>
+              Linking.openURL('https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[0].name + ' on ' + this.state.top3venues[0].vicinity + '. 😘')}
+          >
+          Message friend
+          </Button>
         </CardSection>
         </Card>
       )}
+
 
       {renderIf(this.state.name2)(
         <Card>
@@ -207,6 +220,12 @@ class ResultsPage extends Component {
             >
               Get Directions
             </Button>
+            <Button
+              onPress={() =>
+                Linking.openURL('https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[1].name + ' on ' + this.state.top3venues[1].vicinity + '. 😘')}
+            >
+            Message friend
+            </Button>
           </CardSection>
         </Card>
       )}
@@ -229,6 +248,7 @@ class ResultsPage extends Component {
             </Text>
           </CardSection>
 
+
           <CardSection>
             <Button
             onPress={() =>
@@ -239,9 +259,17 @@ class ResultsPage extends Component {
             >
               Get Directions
             </Button>
+
+            <Button
+              onPress={() =>
+                Linking.openURL('https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[2].name + ' on ' + this.state.top3venues[2].vicinity + '. 😘')}
+            >
+            Message friend
+            </Button>
           </CardSection>
         </Card>
       )}
+
     </View>);
     }
   }
