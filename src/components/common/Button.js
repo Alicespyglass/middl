@@ -30,6 +30,7 @@ const styles = {
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#007aff',
+    // borderColor: 'rgb(50, 50, 50)',
     marginLeft: 5,
     marginRight: 5
   }
