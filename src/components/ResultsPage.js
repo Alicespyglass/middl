@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
     flex: 6
   },
   venueTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     // color: 'white'
   },
