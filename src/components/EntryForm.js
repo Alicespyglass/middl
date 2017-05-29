@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Input, Button } from './common';
 
@@ -35,6 +35,7 @@ class EntryForm extends Component {
     };
 
     return (
+      <Image source={require('../assets/blurryTable.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
 
       <Card>
@@ -82,6 +83,7 @@ class EntryForm extends Component {
         </CardSection>
       </Card>
       </View>
+      </Image>
     );
   }
 }
@@ -92,6 +94,11 @@ const styles = StyleSheet.create({
   },
   cardSection: {
     borderBottomWidth: 1
+  },
+  backgroundImage: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null
   }
 });
 

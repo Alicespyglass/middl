@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Linking } from 'react-native';
+import { View, Text, StyleSheet, Linking, Image } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import renderIf from 'render-if';
@@ -123,7 +123,9 @@ class ResultsPage extends Component {
     console.log('place 2 lng', this.props.place2lng)
 
 
-    return (<View style={styles.container}>
+    return (
+      <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
+      <View style={styles.container}>
       {renderIf(this.state.name1)(
         <Card style={styles.card}>
         <CardSection style={styles.cardSection1}>
@@ -132,12 +134,12 @@ class ResultsPage extends Component {
           </Text>
         </CardSection>
         <CardSection style={styles.cardSection1}>
-          <Text>
+          <Text style={styles.venueType}>
             {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
           </Text>
         </CardSection>
         <CardSection style={styles.cardSection1}>
-          <Text>
+          <Text style={styles.venueAddress}>
             {this.state.address1}
           </Text>
         </CardSection>
@@ -164,19 +166,19 @@ class ResultsPage extends Component {
 
 
       {renderIf(this.state.name2)(
-        <Card>
+        <Card style={styles.card}>
           <CardSection style={styles.cardSection2}>
             <Text style={styles.venueTitle}>
               {this.state.name2}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection2}>
-            <Text>
+            <Text style={styles.venueType}>
               {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection2}>
-            <Text>
+            <Text style={styles.venueAddress}>
               {this.state.address2}
             </Text>
           </CardSection>
@@ -202,19 +204,19 @@ class ResultsPage extends Component {
       )}
 
       {renderIf(this.state.name3)(
-        <Card>
+        <Card style={styles.card}>
           <CardSection style={styles.cardSection3}>
             <Text style={styles.venueTitle}>
               {this.state.name3}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection3}>
-            <Text>
+            <Text style={styles.venueType}>
               {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection3}>
-            <Text>
+            <Text style={styles.venueAddress}>
               {this.state.address3}
             </Text>
           </CardSection>
@@ -241,7 +243,9 @@ class ResultsPage extends Component {
         </Card>
       )}
 
-    </View>);
+    </View>
+    </Image>
+  );
     }
   }
 
@@ -273,11 +277,19 @@ const styles = StyleSheet.create({
     flex: 6
   },
   venueTitle: {
-    fontSize: 18,
-    fontWeight: 'bold'
+    fontSize: 20,
+    fontWeight: 'bold',
+    // color: 'white'
+  },
+  venueType: {
+    // fontSize: 16
+  },
+  venueAddress: {
+    // fontSize: 16,
+    fontStyle: 'italic'
   },
   cardSection1: {
-    // backgroundColor: '#ADFCF9'
+    // backgroundColor: 'rgba(52, 52, 52, 0.1)'
   },
   cardSection2: {
     // backgroundColor: '#8EB8E5'
@@ -286,7 +298,12 @@ const styles = StyleSheet.create({
     // backgroundColor: '#437C90'
   },
   card: {
-    borderWidth: 5
+    // backgroundColor: 'rgb(52, 52, 52)'
+  },
+  backgroundImage: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null
   }
 });
 
