@@ -4,10 +4,15 @@ import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import renderIf from 'render-if';
 import { Card, CardSection, Button } from './common';
-import Midpoint from './Midpoint';
+import Test from './Midpoint';
 
 class ResultsPage extends Component {
-  state = {}
+  constructor(props) {
+    super(props);
+      // this.test = this.test.bind(this);
+      this.state = {};
+  }
+
 
   componentWillMount() {
     // Google Geocode API to get user address lat, lng, id => object
@@ -28,7 +33,7 @@ class ResultsPage extends Component {
       })
     )
     // Calculate midpoint between user and friend => [lat, lng]
-    .then(response => { Midpoint.midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude) })
+    .then(response => { this.midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude) })
 
     // Google Places API to find places within 500m radius of midPoint => array
     .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY' + '&types=' + this.props.placeType)
@@ -58,25 +63,25 @@ class ResultsPage extends Component {
     })
   }
 
-  // midpoint(lat1, lng1, lat2, lng2) {
-  //   const rad = (Math.PI) / 180;
-  //   const rlat1 = lat1 * rad;
-  //   const rlng1 = lng1 * rad;
-  //   const rlat2 = lat2 * rad;
-  //   const rlng2 = lng2 * rad;
-  //
-  //   const dlng = rlng2 - rlng1;
-  //   const Bx = Math.cos(rlat2) * Math.cos(dlng);
-  //   const By = Math.cos(rlat2) * Math.sin(dlng);
-  //
-  //   const lat3 = Math.atan2(Math.sin(rlat1) + Math.sin(rlat2),
-  //             Math.sqrt(((Math.cos(rlat1) + Bx) * (Math.cos(rlat1) + Bx)) + (By * By)));
-  //   const lng3 = rlng1 + Math.atan2(By, (Math.cos(rlat1) + Bx));
-  //
-  //   const lat = (lat3 * 180) / Math.PI;
-  //   const lng = (lng3 * 180) / Math.PI;
-  //   this.setState({ lat2: lat, lng2: lng });
-  // }
+  midpoint(lat1, lng1, lat2, lng2) {
+    const rad = (Math.PI) / 180;
+    const rlat1 = lat1 * rad;
+    const rlng1 = lng1 * rad;
+    const rlat2 = lat2 * rad;
+    const rlng2 = lng2 * rad;
+
+    const dlng = rlng2 - rlng1;
+    const Bx = Math.cos(rlat2) * Math.cos(dlng);
+    const By = Math.cos(rlat2) * Math.sin(dlng);
+
+    const lat3 = Math.atan2(Math.sin(rlat1) + Math.sin(rlat2),
+              Math.sqrt(((Math.cos(rlat1) + Bx) * (Math.cos(rlat1) + Bx)) + (By * By)));
+    const lng3 = rlng1 + Math.atan2(By, (Math.cos(rlat1) + Bx));
+
+    const lat = (lat3 * 180) / Math.PI;
+    const lng = (lng3 * 180) / Math.PI;
+    this.setState({ lat2: lat, lng2: lng });
+  }
 
 
   placesRatingsArray() {
@@ -114,14 +119,9 @@ class ResultsPage extends Component {
     getDirections(data);
   }
 
-  whatsapp() {
-    const endPoint =
-    'https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[0].name + ' on ' + this.state.top3venues[0].vicinity + '. 😘'
-    return endPoint
-  }
-
   render() {
-    console.log("p1 Latitude: ", Object.prototype.toString.call(this.state.p1Latitude))
+    // console.log("test", this.test());
+    // Midpoint.test();
 
     return (<View style={styles.container}>
       {renderIf(this.state.name1)(
