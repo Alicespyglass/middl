@@ -13,9 +13,24 @@ class EntryForm extends Component {
   }
 
   render() {
-    const goToResultsPage = () => {
+    const goToResultsPageCafe = () => {
     Actions.results({ p1: this.state.personOneLocation,
-      p2: this.state.personTwoLocation
+      p2: this.state.personTwoLocation,
+      placeType: 'cafe'
+      });
+    };
+
+    const goToResultsPageBar = () => {
+    Actions.results({ p1: this.state.personOneLocation,
+      p2: this.state.personTwoLocation,
+      placeType: 'bar'
+      });
+    };
+
+    const goToResultsPageRestaurant = () => {
+    Actions.results({ p1: this.state.personOneLocation,
+      p2: this.state.personTwoLocation,
+      placeType: 'restaurant'
       });
     };
 
@@ -42,7 +57,7 @@ class EntryForm extends Component {
         <CardSection>
           <Button
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={goToResultsPage}
+          onPress={goToResultsPageCafe}
           >
             Cafe
           </Button>
@@ -51,7 +66,7 @@ class EntryForm extends Component {
         <CardSection>
           <Button
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={goToResultsPage}
+          onPress={goToResultsPageBar}
           >
             Bar
           </Button>
@@ -60,9 +75,9 @@ class EntryForm extends Component {
         <CardSection>
           <Button
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={goToResultsPage}
+          onPress={goToResultsPageRestaurant}
           >
-            Park
+            Restaurant
           </Button>
         </CardSection>
       </Card>
