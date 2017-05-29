@@ -8,13 +8,29 @@ class EntryForm extends Component {
     super();
     this.state = { personOneLocation: null,
     personTwoLocation: null,
+    loading: false
     };
   }
 
   render() {
-    const goToResultsPage = () => {
+    const goToResultsPageCafe = () => {
     Actions.results({ p1: this.state.personOneLocation,
       p2: this.state.personTwoLocation,
+      placeType: 'cafe'
+      });
+    };
+
+    const goToResultsPageBar = () => {
+    Actions.results({ p1: this.state.personOneLocation,
+      p2: this.state.personTwoLocation,
+      placeType: 'bar'
+      });
+    };
+
+    const goToResultsPageRestaurant = () => {
+    Actions.results({ p1: this.state.personOneLocation,
+      p2: this.state.personTwoLocation,
+      placeType: 'restaurant'
       });
     };
 
@@ -22,7 +38,7 @@ class EntryForm extends Component {
       <View style={styles.container}>
 
       <Card>
-        <CardSection>
+        <CardSection style={styles.cardSection}>
           <Input
             label="You"
             placeholder="Where are you?"
@@ -30,7 +46,7 @@ class EntryForm extends Component {
           />
         </CardSection>
 
-        <CardSection>
+        <CardSection style={styles.cardSection}>
             <Input
               label="Them"
               placeholder="Where's your friend?"
@@ -41,7 +57,7 @@ class EntryForm extends Component {
         <CardSection>
           <Button
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={goToResultsPage}
+          onPress={goToResultsPageCafe}
           >
             Cafe
           </Button>
@@ -50,7 +66,7 @@ class EntryForm extends Component {
         <CardSection>
           <Button
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={goToResultsPage}
+          onPress={goToResultsPageBar}
           >
             Bar
           </Button>
@@ -59,22 +75,23 @@ class EntryForm extends Component {
         <CardSection>
           <Button
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-          onPress={goToResultsPage}
+          onPress={goToResultsPageRestaurant}
           >
-            Park
+            Restaurant
           </Button>
         </CardSection>
       </Card>
       </View>
     );
-
   }
-
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  cardSection: {
+    borderBottomWidth: 1
   }
 });
 

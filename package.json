@@ -15,9 +15,15 @@
     "react-native-google-maps-directions": "^1.1.0",
     "react-native-maps": "^0.15.2",
     "react-native-places-autocomplete": "^1.5.2",
+    "react-native-render-html": "^2.0.0",
     "react-native-router-flux": "^3.39.1",
     "react-native-search-bar": "^3.0.0",
-    "react-native-vector-icons": "^4.0.1"
+    "react-native-vector-icons": "^4.0.1",
+    "react-redux": "^5.0.5",
+    "react-render-html": "^0.1.6",
+    "redux": "^3.6.0",
+    "redux-axios-middleware": "^4.0.0",
+    "render-if": "^0.1.1"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.8.1",
