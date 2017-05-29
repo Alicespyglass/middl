@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Input, Button } from './common';
 
@@ -59,7 +59,8 @@ class EntryForm extends Component {
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
           onPress={goToResultsPageCafe}
           >
-            Cafe
+          <Image source={require('../assets/coffee.png')} />
+          <Text>Cafe</Text>
           </Button>
         </CardSection>
 
@@ -68,7 +69,8 @@ class EntryForm extends Component {
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
           onPress={goToResultsPageBar}
           >
-            Bar
+          <Image source={require('../assets/beer.png')} />
+          <Text>Bar</Text>
           </Button>
         </CardSection>
 
@@ -77,7 +79,8 @@ class EntryForm extends Component {
           accessibilityLabel='Click this button to find somewhere you and your friend can meet'
           onPress={goToResultsPageRestaurant}
           >
-            Restaurant
+          <Image source={require('../assets/cutlery.png')} />
+          <Text>Restaurant</Text>
           </Button>
         </CardSection>
       </Card>
