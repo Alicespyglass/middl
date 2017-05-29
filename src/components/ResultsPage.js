@@ -33,7 +33,7 @@ class ResultsPage extends Component {
     .then(response => { this.midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude) })
 
     // Google Places API to find places (coffee) within 500m radius of midPoint => array
-    .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&type=coffee&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY' + '&types=cafe')
+    .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&type=coffee&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY' + '&types=' + this.props.placeType)
       .then(response => {
         this.setState({ midPlaces: response.data });
         this.setState({ midPlaceOneId: response.data.results["0"].place_id });
@@ -139,8 +139,8 @@ class ResultsPage extends Component {
     console.log('midPlaces[0]_id: ', this.state.midPlaceOneId)
     console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
     console.log('places array: ', this.state.ratingsArray)
-    console.log('type:', this.props.type)
     console.log('top 3 venues array', this.state.top3venues)
+    console.log('top 3 venues array', this.props.placeType)
 
 
     return (<View style={styles.container}>
