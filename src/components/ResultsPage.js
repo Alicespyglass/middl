@@ -33,7 +33,7 @@ class ResultsPage extends Component {
     .then(response => { this.midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude) })
 
     // Google Places API to find places (coffee) within 500m radius of midPoint => array
-    .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&type=coffee&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY')
+    .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&type=coffee&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY' + '&types=cafe')
       .then(response => {
         this.setState({ midPlaces: response.data });
         this.setState({ midPlaceOneId: response.data.results["0"].place_id });
@@ -44,9 +44,15 @@ class ResultsPage extends Component {
     .then(response => { this.placesRatingsArray() })
     .then(response => { this.top3RatedArray() })
     .then(response => {
-      this.setState({ name1: this.state.top3venues[0].name })
-      this.setState({ name2: this.state.top3venues[1].name })
-      this.setState({ name3: this.state.top3venues[2].name })
+      this.setState({ name1: this.state.top3venues[0].name });
+      this.setState({ type1: this.state.top3venues[0].types[0] });
+      this.setState({ address1: this.state.top3venues[0].vicinity });
+      this.setState({ name2: this.state.top3venues[1].name });
+      this.setState({ type2: this.state.top3venues[1].types[0] });
+      this.setState({ address2: this.state.top3venues[1].vicinity });
+      this.setState({ name3: this.state.top3venues[2].name });
+      this.setState({ type3: this.state.top3venues[2].types[0] });
+      this.setState({ address3: this.state.top3venues[2].vicinity });
     })
 
 
@@ -109,7 +115,7 @@ class ResultsPage extends Component {
       params: [
         {
           key: 'dirflg',
-          value: 'w'
+          value: 'r'
         }
       ]
     };
@@ -135,7 +141,6 @@ class ResultsPage extends Component {
     console.log('places array: ', this.state.ratingsArray)
     console.log('type:', this.props.type)
     console.log('top 3 venues array', this.state.top3venues)
-    console.log('Place 1 name: ', this.state.place1name)
 
 
     return (<View style={styles.container}>
@@ -144,6 +149,16 @@ class ResultsPage extends Component {
         <CardSection>
           <Text>
             {this.state.name1}
+          </Text>
+        </CardSection>
+        <CardSection>
+          <Text>
+            {this.state.type1}
+          </Text>
+        </CardSection>
+        <CardSection>
+          <Text>
+            {this.state.address1}
           </Text>
         </CardSection>
 
@@ -167,6 +182,15 @@ class ResultsPage extends Component {
             {this.state.name2}
           </Text>
         </CardSection>
+        <CardSection>
+          <Text>
+            {this.state.type2}
+          </Text>
+        </CardSection><CardSection>
+          <Text>
+            {this.state.address2}
+          </Text>
+        </CardSection>
 
         <CardSection>
           <Button
@@ -186,6 +210,16 @@ class ResultsPage extends Component {
         <CardSection>
           <Text>
             {this.state.name3}
+          </Text>
+        </CardSection>
+        <CardSection>
+          <Text>
+            {this.state.type3}
+          </Text>
+        </CardSection>
+        <CardSection>
+          <Text>
+            {this.state.address3}
           </Text>
         </CardSection>
 
