@@ -6,6 +6,7 @@ import renderIf from 'render-if';
 import { Card, CardSection, Button } from './common';
 import { midpoint, placesRating, setTopVenues } from './methods';
 
+
 class ResultsPage extends Component {
   constructor(props) {
     super(props);
@@ -85,7 +86,6 @@ class ResultsPage extends Component {
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
-      {renderIf(this.state.name1)(
         <Card style={styles.card}>
         <CardSection style={styles.cardSection1}>
           <Text style={styles.venueTitle}>
@@ -94,7 +94,7 @@ class ResultsPage extends Component {
         </CardSection>
         <CardSection style={styles.cardSection1}>
           <Text style={styles.venueType}>
-            {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
+            {this.props.placeType }
           </Text>
         </CardSection>
         <CardSection style={styles.cardSection1}>
@@ -121,10 +121,7 @@ class ResultsPage extends Component {
           </Button>
         </CardSection>
         </Card>
-      )}
 
-
-      {renderIf(this.state.name2)(
         <Card style={styles.card}>
           <CardSection style={styles.cardSection2}>
             <Text style={styles.venueTitle}>
@@ -133,7 +130,7 @@ class ResultsPage extends Component {
           </CardSection>
           <CardSection style={styles.cardSection2}>
             <Text style={styles.venueType}>
-              {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
+              {this.props.placeType }
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection2}>
@@ -160,9 +157,7 @@ class ResultsPage extends Component {
             </Button>
           </CardSection>
         </Card>
-      )}
 
-      {renderIf(this.state.name3)(
         <Card style={styles.card}>
           <CardSection style={styles.cardSection3}>
             <Text style={styles.venueTitle}>
@@ -171,7 +166,7 @@ class ResultsPage extends Component {
           </CardSection>
           <CardSection style={styles.cardSection3}>
             <Text style={styles.venueType}>
-              {this.props.placeType.replace(/\b\w/g, function(l) { return l.toUpperCase(); })}
+              {this.props.placeType }
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection3}>
@@ -200,7 +195,6 @@ class ResultsPage extends Component {
             </Button>
           </CardSection>
         </Card>
-      )}
 
     </View>
     </Image>

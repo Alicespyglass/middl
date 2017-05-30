@@ -21,7 +21,9 @@ const styles = {
     fontSize: 18,
     fontWeight: '600',
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    // fontFamily: 'Heiti TC',
+    fontFamily: 'System'
   },
   buttonStyle: {
     flex: 1,
@@ -29,8 +31,8 @@ const styles = {
     backgroundColor: 'rgba(83, 90, 146, 0.55)',
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#007aff',
-    // borderColor: 'rgb(50, 50, 50)',
+    // borderColor: '#007aff',
+    borderColor: 'rgb(0, 0, 0)',
     marginLeft: 5,
     marginRight: 5
   }
