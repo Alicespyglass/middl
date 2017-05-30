@@ -1,7 +1,5 @@
 import { midpoint } from '../src/components/methods';
 
-// expect output 2 arguments
-
 test('midpoint produces 2 numbers, lat2 and lng2', () => {
   const expected = {
     lat2: 2.0003044085023727,

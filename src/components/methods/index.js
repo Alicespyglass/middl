@@ -1,2 +1,3 @@
-export * from './addUp';
 export * from './midpoint';
+export * from './placesRating';
+export * from './setTopVenues';
