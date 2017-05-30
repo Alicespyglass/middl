@@ -81,6 +81,7 @@ class ResultsPage extends Component {
     console.log('lat2 object type:', Object.prototype.toString.call(this.state.lat2))
     console.log('placesRating (what comes out):', this.state.ratingsArray)
     console.log('placesRating (what goes in - midPlaces):', this.state.midPlaces)
+    console.log('rating1:', this.state.rating1)
 
 
     return (
@@ -95,6 +96,11 @@ class ResultsPage extends Component {
         <CardSection style={styles.cardSection1}>
           <Text style={styles.venueType}>
             {this.props.placeType }
+          </Text>
+        </CardSection>
+        <CardSection style={styles.cardSection1}>
+          <Text style={styles.venueAddress}>
+            Rating out of 5: {this.state.rating1}
           </Text>
         </CardSection>
         <CardSection style={styles.cardSection1}>
@@ -135,6 +141,11 @@ class ResultsPage extends Component {
           </CardSection>
           <CardSection style={styles.cardSection2}>
             <Text style={styles.venueAddress}>
+              Rating out of 5: {this.state.rating2}
+            </Text>
+          </CardSection>
+          <CardSection style={styles.cardSection2}>
+            <Text style={styles.venueAddress}>
               {this.state.address2}
             </Text>
           </CardSection>
@@ -167,6 +178,11 @@ class ResultsPage extends Component {
           <CardSection style={styles.cardSection3}>
             <Text style={styles.venueType}>
               {this.props.placeType }
+            </Text>
+          </CardSection>
+          <CardSection style={styles.cardSection3}>
+            <Text style={styles.venueAddress}>
+              Rating out of 5: {this.state.rating3}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection3}>
