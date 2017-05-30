@@ -4,7 +4,7 @@ An iOS app for finding cool places to meet your friends efficiently.
 
 
 ## Set-up
-**1. Install node**
+**1. Install node (if you haven't already) **
 ```
 $ brew install node
 ```
@@ -27,6 +27,7 @@ $ npm update
 **4. Set up simulator**
 
 - check you're in the middl directory
+
 ```$ react-native run-ios```
 
 **5. Enjoy!**
@@ -41,7 +42,9 @@ $ npm update
 
 [Alice Cheung](https://github.com/Alicespyglass)
 
-## Tech Stack
-- React
+## Technologies
+- Javascript
+- React-Native
 - Jest
 - node
+- Google developer tools (maps API)
