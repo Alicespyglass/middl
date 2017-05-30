@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, Linking, Image } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import renderIf from 'render-if';
-import { Card, CardSection, Button, Midpoint, PlacesRating } from './common';
+import { Card, CardSection, Button, PlacesRating } from './common';
+import { addUp, midpoint } from './methods';
 
 class ResultsPage extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class ResultsPage extends Component {
       })
     )
     // Calculate midpoint between user and friend => [lat, lng]
-    .then(response => { this.setState(Midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude)) })
+    .then(response => { this.setState(midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude)) })
 
     // Google Places API to find places within 500m radius of midPoint => array
     .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY' + '&types=' + this.props.placeType)
@@ -58,6 +59,9 @@ class ResultsPage extends Component {
                       place3lat: this.state.top3venues[2].geometry.location.lat,
                       place3lng: this.state.top3venues[2].geometry.location.lng
                     });
+    })
+    .then(response => {
+      this.setState({ test: addUp(1, 3)} )
     })
   }
 
@@ -88,6 +92,8 @@ class ResultsPage extends Component {
   }
 
   render() {
+    console.log('lat2 object type:', Object.prototype.toString.call(this.state.lat2))
+
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>

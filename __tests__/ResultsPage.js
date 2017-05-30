@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import React from 'react';
-import { shallow } from 'enzyme';
+// import { shallow } from 'enzyme';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import ResultsPage from '../src/components/ResultsPage';
