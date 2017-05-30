@@ -96,33 +96,7 @@ class ResultsPage extends Component {
     getDirections(data);
   }
 
-  whatsapp() {
-    const endPoint =
-    'https://api.whatsapp.com/send?text=' + 'Hey! Lets meet at ' + this.state.top3venues[0].name + ' on ' + this.state.top3venues[0].vicinity + '. 😘'
-    return endPoint
-  }
-
   render() {
-    console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
-    console.log("p1 Latitude: ", Object.prototype.toString.call(this.state.p1Latitude))
-    console.log("midlat2: ", Object.prototype.toString.call(this.state.lat2))
-    console.log("end to end route: ", this.state.route)
-    console.log("P1Lat: ", this.state.p1Latitude)
-    console.log("P1Lon: ", this.state.p1Longitude)
-    console.log("P2Lat: ", this.state.p2Latitude)
-    console.log("P2Lon: ", this.state.p2Longitude)
-    console.log("midDeg:", this.state.midDeg)
-    console.log("start id:", this.state.p1Id)
-    console.log("end id:", this.state.p2Id)
-    console.log('midPlaces: ', this.state.midPlaces)
-    console.log('midPlaces[0]_id: ', this.state.midPlaceOneId)
-    console.log('midPlaces[0] route: ', this.state.midPlacesRoute)
-    console.log('places array: ', this.state.ratingsArray)
-    console.log('top 3 venues array', this.state.top3venues)
-    console.log('place 1 lat', this.props.place1lat)
-    console.log('place 2 lng', this.props.place2lng)
-
-
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
@@ -156,7 +130,7 @@ class ResultsPage extends Component {
 
           <Button
             onPress={() =>
-              Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Lets meet at ${this.state.top3venues[0].name} on ${this.state.top3venues[0].vicinity} 😘`)}
+              Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Let's meet at ${this.state.top3venues[0].name} on ${this.state.top3venues[0].vicinity}`)}
           >
           Message friend
           </Button>
@@ -195,7 +169,7 @@ class ResultsPage extends Component {
             </Button>
             <Button
               onPress={() =>
-                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Lets meet at ${this.state.top3venues[1].name} on ${this.state.top3venues[1].vicinity} 😘`)}
+                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Let's meet at ${this.state.top3venues[1].name} on ${this.state.top3venues[1].vicinity}`)}
             >
             Message friend
             </Button>
@@ -235,7 +209,7 @@ class ResultsPage extends Component {
 
             <Button
               onPress={() =>
-                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Lets meet at ${this.state.top3venues[2].name} on ${this.state.top3venues[2].vicinity} 😘`)}
+                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Let's meet at ${this.state.top3venues[2].name} on ${this.state.top3venues[2].vicinity}`)}
             >
             Message friend
             </Button>
