@@ -25,15 +25,19 @@ const styles = {
     color: '#000',
     paddingRight: 5,
     paddingLeft: 5,
-    fontSize: 20,
+    fontSize: 22,
     lineHeight: 23,
     flex: 2,
+    fontFamily: 'System',
+    // fontFamily: 'Heiti TC'
   },
   labelStyle: {
-    fontSize: 20,
+    fontSize: 22,
     paddingLeft: 20,
     flex: 1,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'System',
+    // fontFamily: 'Heiti TC'
   },
   containerStyle: {
     height: 40,

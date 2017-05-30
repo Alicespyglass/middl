@@ -89,9 +89,11 @@ class EntryForm extends Component {
           </CardSection>
         </Card>
         </View>
-        <Text style={styles.quotes}>
-          {this.state.randomQuote}
-        </Text>
+        <View style={styles.quotesView}>
+          <Text style={styles.quotesText}>
+            {this.state.randomQuote}
+          </Text>
+        </View>
       </Image>
     );
   }
@@ -102,18 +104,24 @@ const styles = StyleSheet.create({
     flex: 1
   },
   cardSection: {
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
   },
   backgroundImage: {
     flex: 1,
     alignSelf: 'stretch',
     width: null
   },
-  quotes: {
+  quotesView: {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    color: 'white',
     marginBottom: 60,
-    fontSize: 20
+  },
+  quotesText: {
+    color: 'white',
+    fontSize: 24,
+    fontFamily: 'Bodoni 72',
+    // fontFamily: 'Heiti TC'
+    alignSelf: 'center',
+    padding: 5
   }
 });
 
