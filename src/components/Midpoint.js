@@ -1,0 +1,1 @@
+Test = function () { return true; }
