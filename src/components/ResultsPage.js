@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Linking, Image } from 'react-native';
 import axios from 'axios';
 import renderIf from 'render-if';
 import { Card, CardSection, Button } from './common';
-import { midpoint, placesRating, setTopVenues, handleGetDirections } from './methods';
+import { midpoint, placesRating, setTopVenues, handleGetDirections, whatsappMessage } from './methods';
 
 
 class ResultsPage extends Component {
@@ -55,27 +55,6 @@ class ResultsPage extends Component {
     this.setState({ top3venues: topvenues });
   }
 
-  // handleGetDirections(lat1, lng1, lat2, lng2) {
-  //   const data = {
-  //      source: {
-  //       latitude: lat1,
-  //       longitude: lng1
-  //     },
-  //     destination: {
-  //       latitude: lat2,
-  //       longitude: lng2
-  //     },
-  //     params: [
-  //       {
-  //         key: 'dirflg',
-  //         value: 'r'
-  //       }
-  //     ]
-  //   };
-  //
-  //   getDirections(data);
-  // }
-
   render() {
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
@@ -109,7 +88,7 @@ class ResultsPage extends Component {
 
           <Button
             onPress={() =>
-              Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Let's meet at ${this.state.top3venues[0].name} on ${this.state.top3venues[0].vicinity}`)}
+              Linking.openURL(whatsappMessage(this.state.top3venues[0]))}
           >
           Message friend
           </Button>
@@ -145,7 +124,7 @@ class ResultsPage extends Component {
             </Button>
             <Button
               onPress={() =>
-                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Let's meet at ${this.state.top3venues[1].name} on ${this.state.top3venues[1].vicinity}`)}
+                Linking.openURL(whatsappMessage(this.state.top3venues[1]))}
             >
             Message friend
             </Button>
@@ -183,7 +162,7 @@ class ResultsPage extends Component {
 
             <Button
               onPress={() =>
-                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Let's meet at ${this.state.top3venues[2].name} on ${this.state.top3venues[2].vicinity}`)}
+                Linking.openURL(whatsappMessage(this.state.top3venues[2]))}
             >
             Message friend
             </Button>
