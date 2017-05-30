@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import React from 'react';
 import { shallow } from 'enzyme';
 import axios from 'axios';
+import sinon from 'sinon';
 import MockAdapter from 'axios-mock-adapter';
 import ResultsPage from '../src/components/ResultsPage';
 import { Card, CardSection, Button } from '../src/components/common';
@@ -21,19 +22,19 @@ describe('<ResultsPage />', () => {
       expect(wrapper.find(View).length).toBe(1);
   });
 
-  it('renders one Card component', () => {
+  it('renders three Card components', () => {
     const wrapper = shallow(<ResultsPage />);
-      expect(wrapper.find(Card).length).toBe(1);
+      expect(wrapper.find(Card).length).toBe(3);
   });
 
-  it('renders one Button component', () => {
+  it('renders six Button components', () => {
     const wrapper = shallow(<ResultsPage />);
-      expect(wrapper.find(Button).length).toBe(1);
+      expect(wrapper.find(Button).length).toBe(6);
   });
 
-  it('renders one CardSection component', () => {
+  it('renders 12 CardSection components', () => {
     const wrapper = shallow(<ResultsPage />);
-      expect(wrapper.find(CardSection).length).toBe(1);
+      expect(wrapper.find(CardSection).length).toBe(12);
   });
 
   it('mocks the API correctly', () => {
@@ -45,6 +46,7 @@ describe('<ResultsPage />', () => {
 });
 
 it('renders correctly', () => {
+  sinon.stub(Math, 'random').returns(0.5);
   const tree = renderer.create(
     <ResultsPage />).toJSON();
     expect(tree).toMatchSnapshot();

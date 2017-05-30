@@ -22,21 +22,21 @@ class EntryForm extends Component {
     const goToResultsPageCafe = () => {
     Actions.results({ p1: this.state.personOneLocation,
       p2: this.state.personTwoLocation,
-      placeType: 'cafe'
+      placeType: 'Cafe'
       });
     };
 
     const goToResultsPageBar = () => {
     Actions.results({ p1: this.state.personOneLocation,
       p2: this.state.personTwoLocation,
-      placeType: 'bar'
+      placeType: 'Bar'
       });
     };
 
     const goToResultsPageRestaurant = () => {
     Actions.results({ p1: this.state.personOneLocation,
       p2: this.state.personTwoLocation,
-      placeType: 'restaurant'
+      placeType: 'Restaurant'
       });
     };
 
