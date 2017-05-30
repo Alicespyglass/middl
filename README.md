@@ -4,7 +4,7 @@ An iOS app for finding cool places to meet your friends efficiently.
 
 
 ## Set-up
-**1. Install node (if you haven't already) **
+**1. Install node (if you haven't already)**
 ```
 $ brew install node
 ```
