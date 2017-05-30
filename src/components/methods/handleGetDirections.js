@@ -2,7 +2,7 @@ import getDirections from 'react-native-google-maps-directions';
 
 const handleGetDirections = (lat1, lng1, lat2, lng2) => {
   const data = {
-     source: {
+    source: {
       latitude: lat1,
       longitude: lng1
     },
@@ -10,12 +10,10 @@ const handleGetDirections = (lat1, lng1, lat2, lng2) => {
       latitude: lat2,
       longitude: lng2
     },
-    params: [
-      {
-        key: 'dirflg',
-        value: 'r'
-      }
-    ]
+    params: [{
+      key: 'dirflg',
+      value: 'r'
+    }]
   };
 
   getDirections(data);
