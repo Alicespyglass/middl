@@ -1,4 +1,4 @@
-const PlacesRating = (ratArray) => {
+const placesRating = (ratArray) => {
   const ratArrayNoUndefined = ratArray.filter(function(n){ return n.rating !== undefined })
   const sortedArray = ratArrayNoUndefined.sort(function(a,b) {
     return b.rating - a.rating;
@@ -6,4 +6,4 @@ const PlacesRating = (ratArray) => {
   return { ratingsArray: sortedArray };
 }
 
-export { PlacesRating };
+export { placesRating };

@@ -1,4 +1,4 @@
-const Midpoint = (lat1, lng1, lat2, lng2) => {
+const midpoint = (lat1, lng1, lat2, lng2) => {
   const rad = (Math.PI) / 180;
   const rlat1 = lat1 * rad;
   const rlng1 = lng1 * rad;
@@ -16,6 +16,6 @@ const Midpoint = (lat1, lng1, lat2, lng2) => {
   const lat = (lat3 * 180) / Math.PI;
   const lng = (lng3 * 180) / Math.PI;
   return { lat2: lat, lng2: lng };
-}
+};
 
-export { Midpoint };
+export { midpoint };
