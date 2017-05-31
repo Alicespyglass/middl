@@ -17,6 +17,6 @@ const handleGetDirections = (lat1, lng1, lat2, lng2) => {
   };
 
   getDirections(data);
-}
+};
 
 export { handleGetDirections };
