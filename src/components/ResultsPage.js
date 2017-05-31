@@ -42,11 +42,13 @@ class ResultsPage extends Component {
     // Pull ratings from places
     .then(response => { this.setState(placesRating(this.state.midPlaces.results)); })
     .then(response => { this.setState(top3RatedArray(this.state.ratingsArray)); })
-    .then(response => { this.setState(setTopVenues(this.state.top3venues));
+    .then(response => { this.setState(setTopVenues(this.state.top3venues, this.props.placeType, this.state.userLatitude, this.state.userLongitude));
     });
   }
 
   render() {
+    console.log('top3venues from top3RatedArray method: ', this.state.top3venues);
+    console.log('venues3Hash: ', this.state.venues3Hash)
     const places = [
                [this.state.name1,
                this.state.address1,
