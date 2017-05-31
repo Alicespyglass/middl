@@ -1,0 +1,671 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Image
+  source={1}
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "flex": 1,
+      "width": null,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0.2)",
+          "borderBottomWidth": 0,
+          "borderColor": "#ddd",
+          "borderRadius": 2,
+          "borderWidth": 0,
+          "elevation": 1,
+          "marginLeft": 5,
+          "marginRight": 5,
+          "marginTop": 10,
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.1,
+          "shadowRadius": 2,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 20,
+              "fontWeight": "bold",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={Object {}}
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            Object {},
+          ]
+        }
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "backgroundColor": "rgba(83, 90, 146, 0.55)",
+              "borderColor": "rgb(0, 0, 0)",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "flex": 1,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "white",
+                "fontFamily": "System",
+                "fontSize": 18,
+                "fontWeight": "600",
+                "paddingBottom": 10,
+                "paddingTop": 10,
+              }
+            }
+          >
+            Get Directions
+          </Text>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "backgroundColor": "rgba(83, 90, 146, 0.55)",
+              "borderColor": "rgb(0, 0, 0)",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "flex": 1,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "white",
+                "fontFamily": "System",
+                "fontSize": 18,
+                "fontWeight": "600",
+                "paddingBottom": 10,
+                "paddingTop": 10,
+              }
+            }
+          >
+            Message friend
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0.2)",
+          "borderBottomWidth": 0,
+          "borderColor": "#ddd",
+          "borderRadius": 2,
+          "borderWidth": 0,
+          "elevation": 1,
+          "marginLeft": 5,
+          "marginRight": 5,
+          "marginTop": 10,
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.1,
+          "shadowRadius": 2,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 20,
+              "fontWeight": "bold",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={Object {}}
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            Object {},
+          ]
+        }
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "backgroundColor": "rgba(83, 90, 146, 0.55)",
+              "borderColor": "rgb(0, 0, 0)",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "flex": 1,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "white",
+                "fontFamily": "System",
+                "fontSize": 18,
+                "fontWeight": "600",
+                "paddingBottom": 10,
+                "paddingTop": 10,
+              }
+            }
+          >
+            Get Directions
+          </Text>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "backgroundColor": "rgba(83, 90, 146, 0.55)",
+              "borderColor": "rgb(0, 0, 0)",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "flex": 1,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "white",
+                "fontFamily": "System",
+                "fontSize": 18,
+                "fontWeight": "600",
+                "paddingBottom": 10,
+                "paddingTop": 10,
+              }
+            }
+          >
+            Message friend
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0.2)",
+          "borderBottomWidth": 0,
+          "borderColor": "#ddd",
+          "borderRadius": 2,
+          "borderWidth": 0,
+          "elevation": 1,
+          "marginLeft": 5,
+          "marginRight": 5,
+          "marginTop": 10,
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.1,
+          "shadowRadius": 2,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 20,
+              "fontWeight": "bold",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={Object {}}
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontStyle": "italic",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.25)",
+              "borderBottomWidth": 0,
+              "borderColor": "#ddd",
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "padding": 5,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "backgroundColor": "rgba(83, 90, 146, 0.55)",
+              "borderColor": "rgb(0, 0, 0)",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "flex": 1,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "white",
+                "fontFamily": "System",
+                "fontSize": 18,
+                "fontWeight": "600",
+                "paddingBottom": 10,
+                "paddingTop": 10,
+              }
+            }
+          >
+            Get Directions
+          </Text>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "backgroundColor": "rgba(83, 90, 146, 0.55)",
+              "borderColor": "rgb(0, 0, 0)",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "flex": 1,
+              "marginLeft": 5,
+              "marginRight": 5,
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "white",
+                "fontFamily": "System",
+                "fontSize": 18,
+                "fontWeight": "600",
+                "paddingBottom": 10,
+                "paddingTop": 10,
+              }
+            }
+          >
+            Message friend
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</Image>
+`;

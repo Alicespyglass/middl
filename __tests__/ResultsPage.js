@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import React from 'react';
-// import { shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import axios from 'axios';
 import sinon from 'sinon';
 import MockAdapter from 'axios-mock-adapter';
