@@ -4,6 +4,7 @@
 
 An iOS app for finding new places to meet your friends at a midpoint.
 
+This app allows a user to input their location and a friends location and using the Google Maps API finds the mid point based on latitude and longitude. The app then finds venues within a 500 meter radius of this based on the users selected venue type. Then the top three venues are displayed to the user along with the rating. The user can then select directions to the venue using Google Maps and can send a text message to their friend using Whatsapp with the suggested location.
 
 ## Set-up
 **1. Install node (if you haven't already)**
@@ -48,10 +49,14 @@ $ react-native run-ios
 
 ## Technologies
 - Javascript
-- React-Native
+- React Native
 - Jest
 - node
 - Google developer tools (maps API)
+- Git
+- JSX
+- Whatsapp API
+- XCode
 
 ## User Stories
 
@@ -95,4 +100,16 @@ I would like a map to show me where to go
 
 ## Screenshots
 
-To be added
+![iPhone page with icon](http://i.imgur.com/IkamGI4.png)
+
+![Splash screen](http://i.imgur.com/hKCvoU0.png)
+
+![Entry page](http://i.imgur.com/y6nMucS.png)
+
+![Location input](http://i.imgur.com/1Sa6r73.png)
+
+![Google maps](http://i.imgur.com/gHU83Rr.png)
+
+![Whatsapp message](http://i.imgur.com/9jKctcZ.png)
+
+![Demo gif](./src/assets/demo.gif)
