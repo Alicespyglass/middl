@@ -22,7 +22,7 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => 
 
 const styles = {
   inputStyle: {
-    color: '#000',
+    color: '#222',
     paddingRight: 5,
     paddingLeft: 5,
     fontSize: 22,
@@ -32,6 +32,7 @@ const styles = {
     // fontFamily: 'Heiti TC'
   },
   labelStyle: {
+    color: '#333',
     fontSize: 22,
     paddingLeft: 20,
     flex: 1,

@@ -56,6 +56,12 @@ class ResultsPage extends Component {
     this.setState({ top3venues: topvenues });
   }
 
+  stars(rating) {
+    const roundRating = Math.round(rating);
+    const star = '⭐'.repeat(roundRating);
+    return star;
+  }
+
   handleGetDirections(lat1, lng1, lat2, lng2) {
     const data = {
        source: {
@@ -77,12 +83,12 @@ class ResultsPage extends Component {
     getDirections(data);
   }
 
+
   render() {
     console.log('lat2 object type:', Object.prototype.toString.call(this.state.lat2))
-    console.log('placesRating (what comes out):', this.state.ratingsArray)
-    console.log('placesRating (what goes in - midPlaces):', this.state.midPlaces)
-    console.log('rating1:', this.state.rating1)
-
+    console.log('place type: ', this.props.placeType)
+    console.log('lat2', this.state.lat2)
+    console.log('lng2', this.state.lng2)
 
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
@@ -94,18 +100,18 @@ class ResultsPage extends Component {
           </Text>
         </CardSection>
         <CardSection style={styles.cardSection1}>
-          <Text style={styles.venueType}>
-            {this.props.placeType }
-          </Text>
-        </CardSection>
-        <CardSection style={styles.cardSection1}>
-          <Text style={styles.venueAddress}>
-            Rating out of 5: {this.state.rating1}
-          </Text>
-        </CardSection>
-        <CardSection style={styles.cardSection1}>
           <Text style={styles.venueAddress}>
             {this.state.address1}
+          </Text>
+        </CardSection>
+        <CardSection style={styles.cardSection1}>
+          <Text>
+            {this.stars(this.state.rating1)}
+          </Text>
+        </CardSection>
+        <CardSection style={styles.cardSection1}>
+          <Text style={styles.venueType}>
+            {this.props.placeType }
           </Text>
         </CardSection>
         <CardSection style={styles.cardSection1}>
@@ -140,8 +146,8 @@ class ResultsPage extends Component {
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection2}>
-            <Text style={styles.venueAddress}>
-              Rating out of 5: {this.state.rating2}
+            <Text>
+              {this.stars(this.state.rating2)}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection2}>
@@ -181,8 +187,8 @@ class ResultsPage extends Component {
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection3}>
-            <Text style={styles.venueAddress}>
-              Rating out of 5: {this.state.rating3}
+            <Text>
+              {this.stars(this.state.rating3)}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection3}>
@@ -246,21 +252,28 @@ const styles = StyleSheet.create({
     flex: 6
   },
   venueTitle: {
+    color: '#333',
     fontSize: 20,
     fontWeight: 'bold',
     // color: 'white'
   },
   venueType: {
+    color: '#333',
     // fontSize: 16
   },
   venueAddress: {
     // fontSize: 16,
-    fontStyle: 'italic'
+    color: '#333',
+    fontStyle: 'italic',
   },
   cardSection1: {
+    justifyContent: 'center',
+    alignItems: 'center'
     // backgroundColor: 'rgba(52, 52, 52, 0.1)'
   },
   cardSection2: {
+    justifyContent: 'center',
+    alignItems: 'center'
     // backgroundColor: '#8EB8E5'
   },
   cardSection: {
