@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Listing } from './common';
 import { midpoint, placesRating, setTopVenues } from './methods';
 
-
 class ResultsPage extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +52,6 @@ class ResultsPage extends Component {
   }
 
   render() {
-
     const places = [
                [this.state.name1,
                this.state.address1,
@@ -81,40 +79,21 @@ class ResultsPage extends Component {
                  this.state.userLongitude,
                  this.state.place3lat,
                  this.state.place3lng]
-
     ]
 
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
         <View style={styles.container}>
-
           { places.map( place => Listing(place)) }
-
         </View>
       </Image>
-  );
-    }
+    );
   }
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  venueTitle: {
-    color: '#333',
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  venueType: {
-    color: '#333',
-  },
-  venueAddress: {
-    color: '#333',
-    fontStyle: 'italic'
-  },
-  cardSection: {
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   backgroundImage: {
     flex: 1,
