@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     width: null
   },
   quotesView: {
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     marginBottom: 60,
   },
   quotesText: {

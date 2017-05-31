@@ -13,7 +13,6 @@ class ResultsPage extends Component {
       this.state = {};
   }
 
-
   componentWillMount() {
     // Google Geocode API to get user address lat, lng, id => object
     axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p1)
@@ -55,8 +54,6 @@ class ResultsPage extends Component {
     this.setState({ top3venues: topvenues });
   }
 
-
-  render() {
   stars(rating) {
     const roundRating = Math.round(rating);
     const star = '⭐'.repeat(roundRating);
@@ -83,6 +80,8 @@ class ResultsPage extends Component {
 
     getDirections(data);
   }
+
+  render() {
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
