@@ -100,16 +100,30 @@ I would like a map to show me where to go
 
 ## Screenshots
 
+#### App Icon
+
 ![iPhone page with icon](http://i.imgur.com/IkamGI4.png)
+
+#### Splash Screen
 
 ![Splash screen](http://i.imgur.com/hKCvoU0.png)
 
+#### Input page
+
 ![Entry page](http://i.imgur.com/y6nMucS.png)
+
+#### Input page with text
 
 ![Location input](http://i.imgur.com/1Sa6r73.png)
 
+#### Google maps interface
+
 ![Google maps](http://i.imgur.com/gHU83Rr.png)
 
+#### Whatsapp Message
+
 ![Whatsapp message](http://i.imgur.com/9jKctcZ.png)
+
+#### Demo gif
 
 ![Demo gif](./src/assets/demo.gif)
