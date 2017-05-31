@@ -16,8 +16,8 @@ class ResultsPage extends Component {
     // Google Geocode API to get user address lat, lng, id => object
     axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p1)
       .then(response => {
-        this.setState({ p1Latitude: response.data.results[0].geometry.location.lat,
-                        p1Longitude: response.data.results[0].geometry.location.lng,
+        this.setState({ userLatitude: response.data.results[0].geometry.location.lat,
+                        userLongitude: response.data.results[0].geometry.location.lng,
                         p1Id: response.data.results[0].place_id
                       });
       })
@@ -31,7 +31,7 @@ class ResultsPage extends Component {
       })
     )
     // Calculate midpoint between user and friend => [lat, lng]
-    .then(response => { this.setState(midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude)) })
+    .then(response => { this.setState(midpoint(this.state.userLatitude, this.state.userLongitude, this.state.p2Latitude, this.state.p2Longitude)) })
 
     // Google Places API to find places within 500m radius of midPoint => array
     .then(response => axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat2},${this.state.lng2}&radius=500&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY&types=${this.props.placeType}`)
@@ -62,8 +62,8 @@ class ResultsPage extends Component {
                    this.state.address1,
                    this.state.rating1,
                    this.props.placeType,
-                   this.state.p1Latitude,
-                   this.state.p1Longitude,
+                   this.state.userLatitude,
+                   this.state.userLongitude,
                    this.state.place1lat,
                    this.state.place1lng])}
 
@@ -71,8 +71,8 @@ class ResultsPage extends Component {
                    this.state.address2,
                    this.state.rating2,
                    this.props.placeType,
-                   this.state.p2Latitude,
-                   this.state.p2Longitude,
+                   this.state.userLatitude,
+                   this.state.userLongitude,
                    this.state.place2lat,
                    this.state.place2lng])}
 
@@ -80,8 +80,8 @@ class ResultsPage extends Component {
                    this.state.address3,
                    this.state.rating3,
                    this.props.placeType,
-                   this.state.p3Latitude,
-                   this.state.p3Longitude,
+                   this.state.userLatitude,
+                   this.state.userLongitude,
                    this.state.place3lat,
                    this.state.place3lng])}
 

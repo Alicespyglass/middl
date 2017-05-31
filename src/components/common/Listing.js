@@ -7,8 +7,8 @@ const Listing = ([name,
                   address,
                   rating,
                   placeType,
-                  p1Latitude,
-                  p1Longitude,
+                  userLatitude,
+                  userLongitude,
                   place1lat,
                   place1lng]) => {
   return (
@@ -40,8 +40,8 @@ const Listing = ([name,
       <CardSection style={styles.cardSection}>
         <Button
           onPress={() =>
-            handleGetDirections(p1Latitude,
-              p1Longitude,
+            handleGetDirections(userLatitude,
+              userLongitude,
               place1lat,
               place1lng)}
         >
