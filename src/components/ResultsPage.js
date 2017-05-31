@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
 import { Listing } from './common';
-import { midpoint, placesRating, setTopVenues } from './methods';
+import { midpoint, placesRating, setTopVenues, top3RatedArray } from './methods';
 
 class ResultsPage extends Component {
   constructor(props) {
@@ -41,14 +41,9 @@ class ResultsPage extends Component {
     )
     // Pull ratings from places
     .then(response => { this.setState(placesRating(this.state.midPlaces.results)); })
-    .then(response => { this.top3RatedArray(); })
+    .then(response => { this.setState(top3RatedArray(this.state.ratingsArray)); })
     .then(response => { this.setState(setTopVenues(this.state.top3venues));
     });
-  }
-
-  top3RatedArray() {
-    const topvenues = this.state.ratingsArray.slice(0, 3);
-    this.setState({ top3venues: topvenues });
   }
 
   render() {
