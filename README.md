@@ -1,3 +1,5 @@
+![Travis CI badge](https://travis-ci.org/Alicespyglass/middl.svg?branch=master)
+
 # middl
 
 An iOS app for finding new places to meet your friends at a midpoint.
