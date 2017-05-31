@@ -69,7 +69,7 @@ class ResultsPage extends Component {
       params: [
         {
           key: 'dirflg',
-          value: 'r'
+          value: 'w'
         }
       ]
     };
