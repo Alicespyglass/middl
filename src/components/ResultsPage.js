@@ -47,34 +47,19 @@ class ResultsPage extends Component {
   }
 
   render() {
-    const places = [
-               [this.state.name1,
-               this.state.address1,
-               this.state.rating1,
-               this.props.placeType,
-               this.state.userLatitude,
-               this.state.userLongitude,
-               this.state.place1lat,
-               this.state.place1lng],
+    let places = [];
+    [1,2,3].forEach(index => {
+      places.push([
+        this.state[`name${index}`],
+        this.state[`address${index}`],
+        this.state[`rating${index}`],
+        this.props.placeType,
+        this.state.userLatitude,
+        this.state.userLongitude,
+        this.state[`place${index}lat`],
+        this.state[`place${index}lng`]])
+    });
 
-               [this.state.name2,
-                this.state.address2,
-                this.state.rating2,
-                this.props.placeType,
-                this.state.userLatitude,
-                this.state.userLongitude,
-                this.state.place2lat,
-                this.state.place2lng],
-
-                [this.state.name3,
-                 this.state.address3,
-                 this.state.rating3,
-                 this.props.placeType,
-                 this.state.userLatitude,
-                 this.state.userLongitude,
-                 this.state.place3lat,
-                 this.state.place3lng]
-    ]
 
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
