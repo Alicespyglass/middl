@@ -15,7 +15,9 @@ $ cd middl
 $ npm install
 ```
 If you come across any errors in the terminal at the install, try updating node
-```$ npm update```
+```
+$ npm update
+```
 
 **3. Download xcode**
 
@@ -90,3 +92,5 @@ I would like a map to show me where to go
 ![Mockup](http://i.imgur.com/5BDkcOt.png)
 
 ## Screenshots
+
+To be added
