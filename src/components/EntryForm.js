@@ -13,26 +13,11 @@ class EntryForm extends Component {
     this.setState({randomQuote: this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)]});
   }
 
-
   render() {
-    const goToResultsPageCafe = () => {
+    const goToResultsPage = (place) => {
     Actions.results({ p1: this.state.personOneLocation,
       p2: this.state.personTwoLocation,
-      placeType: 'Cafe'
-      });
-    };
-
-    const goToResultsPageBar = () => {
-    Actions.results({ p1: this.state.personOneLocation,
-      p2: this.state.personTwoLocation,
-      placeType: 'Bar'
-      });
-    };
-
-    const goToResultsPageRestaurant = () => {
-    Actions.results({ p1: this.state.personOneLocation,
-      p2: this.state.personTwoLocation,
-      placeType: 'Restaurant'
+      placeType: place
       });
     };
 
@@ -60,7 +45,7 @@ class EntryForm extends Component {
             <CardSection>
               <Button
               accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-              onPress={goToResultsPageCafe}
+              onPress={() => goToResultsPage('Cafe')}
               >
                 Cafe
               </Button>
@@ -69,7 +54,7 @@ class EntryForm extends Component {
             <CardSection>
               <Button
               accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-              onPress={goToResultsPageBar}
+              onPress={() => goToResultsPage('Bar')}
               >
                 Bar
               </Button>
@@ -78,7 +63,7 @@ class EntryForm extends Component {
             <CardSection>
               <Button
               accessibilityLabel='Click this button to find somewhere you and your friend can meet'
-              onPress={goToResultsPageRestaurant}
+              onPress={() => goToResultsPage('Restaurant')}
               >
                 Restaurant
               </Button>
