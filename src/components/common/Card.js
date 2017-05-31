@@ -23,7 +23,7 @@ const styles = {
     marginLeft: 5,
     marginRight: 5,
     marginTop: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)'
+    backgroundColor: 'rgba(255, 255, 255, 0.7)'
   }
 };
 

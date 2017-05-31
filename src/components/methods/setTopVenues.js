@@ -15,5 +15,4 @@ const setTopVenues = (top3venues) => {
     };
   return venueResult;
 };
-
 export { setTopVenues };
