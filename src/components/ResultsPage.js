@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Linking, Image } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
-import renderIf from 'render-if';
-import { Card, CardSection, Button, Listing } from './common';
-import { midpoint, placesRating, setTopVenues, handleGetDirections, whatsappMessage, stars } from './methods';
+import { Listing } from './common';
+import { midpoint, placesRating, setTopVenues } from './methods';
 
 
 class ResultsPage extends Component {
@@ -54,36 +53,42 @@ class ResultsPage extends Component {
   }
 
   render() {
+
+    const places = [
+               [this.state.name1,
+               this.state.address1,
+               this.state.rating1,
+               this.props.placeType,
+               this.state.userLatitude,
+               this.state.userLongitude,
+               this.state.place1lat,
+               this.state.place1lng],
+
+               [this.state.name2,
+                this.state.address2,
+                this.state.rating2,
+                this.props.placeType,
+                this.state.userLatitude,
+                this.state.userLongitude,
+                this.state.place2lat,
+                this.state.place2lng],
+
+                [this.state.name3,
+                 this.state.address3,
+                 this.state.rating3,
+                 this.props.placeType,
+                 this.state.userLatitude,
+                 this.state.userLongitude,
+                 this.state.place3lat,
+                 this.state.place3lng]
+
+    ]
+
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
         <View style={styles.container}>
 
-          {Listing([this.state.name1,
-                   this.state.address1,
-                   this.state.rating1,
-                   this.props.placeType,
-                   this.state.userLatitude,
-                   this.state.userLongitude,
-                   this.state.place1lat,
-                   this.state.place1lng])}
-
-          {Listing([this.state.name2,
-                   this.state.address2,
-                   this.state.rating2,
-                   this.props.placeType,
-                   this.state.userLatitude,
-                   this.state.userLongitude,
-                   this.state.place2lat,
-                   this.state.place2lng])}
-
-          {Listing([this.state.name3,
-                   this.state.address3,
-                   this.state.rating3,
-                   this.props.placeType,
-                   this.state.userLatitude,
-                   this.state.userLongitude,
-                   this.state.place3lat,
-                   this.state.place3lng])}
+          { places.map( place => Listing(place)) }
 
         </View>
       </Image>
