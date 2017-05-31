@@ -48,7 +48,7 @@ class ResultsPage extends Component {
 
   render() {
     let places = [];
-    [1,2,3].forEach(index => {
+    [1, 2, 3].forEach(index => {
       places.push([
         this.state[`name${index}`],
         this.state[`address${index}`],
