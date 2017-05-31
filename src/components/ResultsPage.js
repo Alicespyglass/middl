@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Linking, Image } from 'react-native';
-import getDirections from 'react-native-google-maps-directions';
+// import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import renderIf from 'render-if';
 import { Card, CardSection, Button } from './common';
-import { midpoint, placesRating, setTopVenues } from './methods';
+import { midpoint, placesRating, setTopVenues, handleGetDirections, whatsappMessage } from './methods';
 
 
 class ResultsPage extends Component {
@@ -36,7 +36,7 @@ class ResultsPage extends Component {
     .then(response => { this.setState(midpoint(this.state.p1Latitude, this.state.p1Longitude, this.state.p2Latitude, this.state.p2Longitude)) })
 
     // Google Places API to find places within 500m radius of midPoint => array
-    .then(response => axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + this.state.lat2 + ',' + this.state.lng2 + '&radius=500&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY' + '&types=' + this.props.placeType)
+    .then(response => axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat2},${this.state.lng2}&radius=500&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY&types=${this.props.placeType}`)
       .then(response => {
         this.setState({ midPlaces: response.data,
                         midPlaceOneId: response.data.results[0].place_id
@@ -44,10 +44,9 @@ class ResultsPage extends Component {
       })
     )
     // Pull ratings from places
-    .then(response => { this.setState(placesRating(this.state.midPlaces.results)) })
-    .then(response => { this.top3RatedArray() })
-    .then(response => {
-      this.setState(setTopVenues(this.state.top3venues));
+    .then(response => { this.setState(placesRating(this.state.midPlaces.results)); })
+    .then(response => { this.top3RatedArray(); })
+    .then(response => { this.setState(setTopVenues(this.state.top3venues));
     });
   }
 
@@ -56,6 +55,8 @@ class ResultsPage extends Component {
     this.setState({ top3venues: topvenues });
   }
 
+
+  render() {
   stars(rating) {
     const roundRating = Math.round(rating);
     const star = '⭐'.repeat(roundRating);
@@ -82,14 +83,6 @@ class ResultsPage extends Component {
 
     getDirections(data);
   }
-
-
-  render() {
-    console.log('lat2 object type:', Object.prototype.toString.call(this.state.lat2))
-    console.log('place type: ', this.props.placeType)
-    console.log('lat2', this.state.lat2)
-    console.log('lng2', this.state.lng2)
-
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
@@ -117,17 +110,17 @@ class ResultsPage extends Component {
         <CardSection style={styles.cardSection1}>
           <Button
           onPress={() =>
-            this.handleGetDirections(this.state.p1Latitude,
-                                    this.state.p1Longitude,
-                                    this.state.place1lat,
-                                    this.state.place1lng)}
+            handleGetDirections(this.state.p1Latitude,
+                                this.state.p1Longitude,
+                                this.state.place1lat,
+                                this.state.place1lng)}
           >
             Get Directions
           </Button>
 
           <Button
             onPress={() =>
-              Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Let's meet at ${this.state.top3venues[0].name} on ${this.state.top3venues[0].vicinity}`)}
+              Linking.openURL(whatsappMessage(this.state.top3venues[0]))}
           >
           Message friend
           </Button>
@@ -159,16 +152,16 @@ class ResultsPage extends Component {
           <CardSection style={styles.cardSection2}>
             <Button
             onPress={() =>
-              this.handleGetDirections(this.state.p1Latitude,
-                                      this.state.p1Longitude,
-                                      this.state.place2lat,
-                                      this.state.place2lng)}
+              handleGetDirections(this.state.p1Latitude,
+                                  this.state.p1Longitude,
+                                  this.state.place2lat,
+                                  this.state.place2lng)}
             >
               Get Directions
             </Button>
             <Button
               onPress={() =>
-                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Let's meet at ${this.state.top3venues[1].name} on ${this.state.top3venues[1].vicinity}`)}
+                Linking.openURL(whatsappMessage(this.state.top3venues[1]))}
             >
             Message friend
             </Button>
@@ -201,17 +194,17 @@ class ResultsPage extends Component {
           <CardSection style={styles.cardSection3}>
             <Button
             onPress={() =>
-              this.handleGetDirections(this.state.p1Latitude,
-                                      this.state.p1Longitude,
-                                      this.state.place3lat,
-                                      this.state.place3lng)}
+              handleGetDirections(this.state.p1Latitude,
+                                  this.state.p1Longitude,
+                                  this.state.place3lat,
+                                  this.state.place3lng)}
             >
               Get Directions
             </Button>
 
             <Button
               onPress={() =>
-                Linking.openURL(`https://api.whatsapp.com/send?text=Hey! Let's meet at ${this.state.top3venues[2].name} on ${this.state.top3venues[2].vicinity}`)}
+                Linking.openURL(whatsappMessage(this.state.top3venues[2]))}
             >
             Message friend
             </Button>
