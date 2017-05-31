@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Linking, Image } from 'react-native';
-// import getDirections from 'react-native-google-maps-directions';
 import axios from 'axios';
 import renderIf from 'render-if';
 import { Card, CardSection, Button } from './common';
-import { midpoint, placesRating, setTopVenues, handleGetDirections, whatsappMessage } from './methods';
+import { midpoint, placesRating, setTopVenues, handleGetDirections, whatsappMessage, stars } from './methods';
 
 
 class ResultsPage extends Component {
@@ -54,38 +53,11 @@ class ResultsPage extends Component {
     this.setState({ top3venues: topvenues });
   }
 
-  stars(rating) {
-    const roundRating = Math.round(rating);
-    const star = '⭐'.repeat(roundRating);
-    return star;
-  }
-
-  handleGetDirections(lat1, lng1, lat2, lng2) {
-    const data = {
-       source: {
-        latitude: lat1,
-        longitude: lng1
-      },
-      destination: {
-        latitude: lat2,
-        longitude: lng2
-      },
-      params: [
-        {
-          key: 'dirflg',
-          value: 'w'
-        }
-      ]
-    };
-
-    getDirections(data);
-  }
-
   render() {
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
-        <Card style={styles.card}>
+        <Card>
         <CardSection style={styles.cardSection1}>
           <Text style={styles.venueTitle}>
             {this.state.name1}
@@ -98,7 +70,7 @@ class ResultsPage extends Component {
         </CardSection>
         <CardSection style={styles.cardSection1}>
           <Text>
-            {this.stars(this.state.rating1)}
+            {stars(this.state.rating1)}
           </Text>
         </CardSection>
         <CardSection style={styles.cardSection1}>
@@ -126,7 +98,7 @@ class ResultsPage extends Component {
         </CardSection>
         </Card>
 
-        <Card style={styles.card}>
+        <Card>
           <CardSection style={styles.cardSection2}>
             <Text style={styles.venueTitle}>
               {this.state.name2}
@@ -139,7 +111,7 @@ class ResultsPage extends Component {
           </CardSection>
           <CardSection style={styles.cardSection2}>
             <Text>
-              {this.stars(this.state.rating2)}
+              {stars(this.state.rating2)}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection2}>
@@ -167,7 +139,7 @@ class ResultsPage extends Component {
           </CardSection>
         </Card>
 
-        <Card style={styles.card}>
+        <Card>
           <CardSection style={styles.cardSection3}>
             <Text style={styles.venueTitle}>
               {this.state.name3}
@@ -180,7 +152,7 @@ class ResultsPage extends Component {
           </CardSection>
           <CardSection style={styles.cardSection3}>
             <Text>
-              {this.stars(this.state.rating3)}
+              {stars(this.state.rating3)}
             </Text>
           </CardSection>
           <CardSection style={styles.cardSection3}>
@@ -217,62 +189,28 @@ class ResultsPage extends Component {
   }
 
 const styles = StyleSheet.create({
-  marker: {
-    height: 20,
-    width: 20,
-    borderWidth: 3,
-    borderColor: 'white',
-    borderRadius: 20 / 2,
-    overflow: 'hidden',
-    backgroundColor: '#007AFF'
-  },
   container: {
-    flex: 1,
-    // backgroundColor: '#6A8EAE'
-  },
-  map: {
-    left: 25,
-    right: 25,
-    top: 25,
-    bottom: 25,
-    position: 'absolute'
-  },
-  textContainer: {
-    flex: 2
-  },
-  mapContainer: {
-    flex: 6
+    flex: 1
   },
   venueTitle: {
     color: '#333',
     fontSize: 20,
-    fontWeight: 'bold',
-    // color: 'white'
+    fontWeight: 'bold'
   },
   venueType: {
     color: '#333',
-    // fontSize: 16
   },
   venueAddress: {
-    // fontSize: 16,
     color: '#333',
-    fontStyle: 'italic',
+    fontStyle: 'italic'
   },
   cardSection1: {
     justifyContent: 'center',
     alignItems: 'center'
-    // backgroundColor: 'rgba(52, 52, 52, 0.1)'
   },
   cardSection2: {
     justifyContent: 'center',
     alignItems: 'center'
-    // backgroundColor: '#8EB8E5'
-  },
-  cardSection: {
-    // backgroundColor: '#437C90'
-  },
-  card: {
-    // backgroundColor: 'rgb(52, 52, 52)'
   },
   backgroundImage: {
     flex: 1,

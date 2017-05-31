@@ -12,7 +12,7 @@ const handleGetDirections = (lat1, lng1, lat2, lng2) => {
     },
     params: [{
       key: 'dirflg',
-      value: 'r'
+      value: 'w'
     }]
   };
 
