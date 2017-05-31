@@ -56,134 +56,143 @@ class ResultsPage extends Component {
   render() {
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
-      <View style={styles.container}>
-        <Card>
-        <CardSection style={styles.cardSection1}>
-          <Text style={styles.venueTitle}>
-            {this.state.name1}
-          </Text>
-        </CardSection>
-        <CardSection style={styles.cardSection1}>
-          <Text style={styles.venueAddress}>
-            {this.state.address1}
-          </Text>
-        </CardSection>
-        <CardSection style={styles.cardSection1}>
-          <Text>
-            {stars(this.state.rating1)}
-          </Text>
-        </CardSection>
-        <CardSection style={styles.cardSection1}>
-          <Text style={styles.venueType}>
-            {this.props.placeType }
-          </Text>
-        </CardSection>
-        <CardSection style={styles.cardSection1}>
-          <Button
-          onPress={() =>
-            handleGetDirections(this.state.p1Latitude,
-                                this.state.p1Longitude,
-                                this.state.place1lat,
-                                this.state.place1lng)}
-          >
-            Get Directions
-          </Button>
+        <View style={styles.container}>
+          <Card>
+            <CardSection style={styles.cardSection}>
+              <Text style={styles.venueTitle}>
+                {this.state.name1}
+              </Text>
+            </CardSection>
 
-          <Button
-            onPress={() =>
-              Linking.openURL(whatsappMessage(this.state.top3venues[0]))}
-          >
-          Message friend
-          </Button>
-        </CardSection>
-        </Card>
+            <CardSection style={styles.cardSection}>
+              <Text style={styles.venueAddress}>
+                {this.state.address1}
+              </Text>
+            </CardSection>
 
-        <Card>
-          <CardSection style={styles.cardSection2}>
-            <Text style={styles.venueTitle}>
-              {this.state.name2}
-            </Text>
-          </CardSection>
-          <CardSection style={styles.cardSection2}>
-            <Text style={styles.venueType}>
-              {this.props.placeType }
-            </Text>
-          </CardSection>
-          <CardSection style={styles.cardSection2}>
-            <Text>
-              {stars(this.state.rating2)}
-            </Text>
-          </CardSection>
-          <CardSection style={styles.cardSection2}>
-            <Text style={styles.venueAddress}>
-              {this.state.address2}
-            </Text>
-          </CardSection>
+            <CardSection style={styles.cardSection}>
+              <Text>
+                {stars(this.state.rating1)}
+              </Text>
+            </CardSection>
 
-          <CardSection style={styles.cardSection2}>
-            <Button
-            onPress={() =>
-              handleGetDirections(this.state.p1Latitude,
-                                  this.state.p1Longitude,
-                                  this.state.place2lat,
-                                  this.state.place2lng)}
-            >
-              Get Directions
-            </Button>
-            <Button
+            <CardSection style={styles.cardSection}>
+              <Text style={styles.venueType}>
+                {this.props.placeType }
+              </Text>
+            </CardSection>
+
+            <CardSection style={styles.cardSection}>
+              <Button
               onPress={() =>
-                Linking.openURL(whatsappMessage(this.state.top3venues[1]))}
-            >
-            Message friend
-            </Button>
-          </CardSection>
-        </Card>
+                handleGetDirections(this.state.p1Latitude,
+                                    this.state.p1Longitude,
+                                    this.state.place1lat,
+                                    this.state.place1lng)}
+              >
+                Get Directions
+              </Button>
 
-        <Card>
-          <CardSection style={styles.cardSection3}>
-            <Text style={styles.venueTitle}>
-              {this.state.name3}
-            </Text>
-          </CardSection>
-          <CardSection style={styles.cardSection3}>
-            <Text style={styles.venueType}>
-              {this.props.placeType }
-            </Text>
-          </CardSection>
-          <CardSection style={styles.cardSection3}>
-            <Text>
-              {stars(this.state.rating3)}
-            </Text>
-          </CardSection>
-          <CardSection style={styles.cardSection3}>
-            <Text style={styles.venueAddress}>
-              {this.state.address3}
-            </Text>
-          </CardSection>
+              <Button
+                onPress={() =>
+                  Linking.openURL(whatsappMessage(this.state.top3venues[0]))}
+              >
+                Message friend
+              </Button>
+            </CardSection>
+          </Card>
 
+          <Card>
+            <CardSection style={styles.cardSection}>
+              <Text style={styles.venueTitle}>
+                {this.state.name2}
+              </Text>
+            </CardSection>
 
-          <CardSection style={styles.cardSection3}>
-            <Button
-            onPress={() =>
-              handleGetDirections(this.state.p1Latitude,
-                                  this.state.p1Longitude,
-                                  this.state.place3lat,
-                                  this.state.place3lng)}
-            >
-              Get Directions
-            </Button>
+            <CardSection style={styles.cardSection}>
+              <Text style={styles.venueAddress}>
+                {this.state.address2}
+              </Text>
+            </CardSection>
 
-            <Button
+            <CardSection style={styles.cardSection}>
+              <Text>
+                {stars(this.state.rating2)}
+              </Text>
+            </CardSection>
+
+            <CardSection style={styles.cardSection}>
+              <Text style={styles.venueType}>
+                {this.props.placeType }
+              </Text>
+            </CardSection>
+
+            <CardSection style={styles.cardSection}>
+              <Button
               onPress={() =>
-                Linking.openURL(whatsappMessage(this.state.top3venues[2]))}
-            >
-            Message friend
-            </Button>
-          </CardSection>
-        </Card>
+                handleGetDirections(this.state.p1Latitude,
+                                    this.state.p1Longitude,
+                                    this.state.place2lat,
+                                    this.state.place2lng)}
+              >
+                Get Directions
+              </Button>
+              <Button
+                onPress={() =>
+                  Linking.openURL(whatsappMessage(this.state.top3venues[1]))}
+              >
+                Message friend
+              </Button>
+            </CardSection>
+          </Card>
 
-    </View>
-    </Image>
+          <Card>
+            <CardSection style={styles.cardSection}>
+              <Text style={styles.venueTitle}>
+                {this.state.name3}
+              </Text>
+            </CardSection>
+
+            <CardSection style={styles.cardSection}>
+              <Text style={styles.venueAddress}>
+                {this.state.address3}
+              </Text>
+            </CardSection>
+
+            <CardSection style={styles.cardSection}>
+              <Text>
+                {stars(this.state.rating3)}
+              </Text>
+            </CardSection>
+
+            <CardSection style={styles.cardSection}>
+              <Text style={styles.venueType}>
+                {this.props.placeType }
+              </Text>
+            </CardSection>
+
+            <CardSection style={styles.cardSection}>
+              <Button
+              onPress={() =>
+                handleGetDirections(this.state.p1Latitude,
+                                    this.state.p1Longitude,
+                                    this.state.place3lat,
+                                    this.state.place3lng)}
+              >
+                Get Directions
+              </Button>
+
+              <Button
+                onPress={() =>
+                  Linking.openURL(whatsappMessage(this.state.top3venues[2]))}
+              >
+                Message friend
+              </Button>
+            </CardSection>
+          </Card>
+
+        </View>
+      </Image>
   );
     }
   }
@@ -204,11 +213,7 @@ const styles = StyleSheet.create({
     color: '#333',
     fontStyle: 'italic'
   },
-  cardSection1: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  cardSection2: {
+  cardSection: {
     justifyContent: 'center',
     alignItems: 'center'
   },
