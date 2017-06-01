@@ -20,7 +20,7 @@ class ResultsPage extends Component {
                       });
       })
     // Google Geocode API to get friend address lat, lng, id => object
-    .then(response => axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2)
+    .then(() => axios.get('https://maps.googleapis.com/maps/api/geocode/json?&address=' + this.props.p2)
       .then(response => {
         this.setState({ p2Latitude: response.data.results[0].geometry.location.lat,
                         p2Longitude: response.data.results[0].geometry.location.lng,
@@ -29,10 +29,10 @@ class ResultsPage extends Component {
       })
     )
     // Calculate midpoint between user and friend => [lat, lng]
-    .then(response => { this.setState(midpoint(this.state.userLatitude, this.state.userLongitude, this.state.p2Latitude, this.state.p2Longitude)) })
+    .then(() => { this.setState(midpoint(this.state.userLatitude, this.state.userLongitude, this.state.p2Latitude, this.state.p2Longitude)) })
 
     // Google Places API to find places within 500m radius of midPoint => array
-    .then(response => axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat2},${this.state.lng2}&radius=500&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY&types=${this.props.placeType}`)
+    .then(() => axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat2},${this.state.lng2}&radius=500&key=AIzaSyByFVMWrXcFmDawtZV1tqvn0fAXgVZe-DY&types=${this.props.placeType}`)
       .then(response => {
         this.setState({ midPlaces: response.data,
                         midPlaceOneId: response.data.results[0].place_id
@@ -40,41 +40,27 @@ class ResultsPage extends Component {
       })
     )
     // Pull ratings from places
-    .then(response => { this.setState(placesRating(this.state.midPlaces.results)); })
-    .then(response => { this.setState(top3RatedArray(this.state.ratingsArray)); })
-    .then(response => { this.setState(setTopVenues(this.state.top3venues));
+    .then(() => {
+      this.setState(placesRating(this.state.midPlaces.results));
+      this.setState(top3RatedArray(this.state.ratingsArray));
+      this.setState(setTopVenues(this.state.top3venues));
     });
   }
 
   render() {
-    const places = [
-               [this.state.name1,
-               this.state.address1,
-               this.state.rating1,
-               this.props.placeType,
-               this.state.userLatitude,
-               this.state.userLongitude,
-               this.state.place1lat,
-               this.state.place1lng],
+    let places = [];
+    [1, 2, 3].forEach(index => {
+      places.push([
+        this.state[`name${index}`],
+        this.state[`address${index}`],
+        this.state[`rating${index}`],
+        this.props.placeType,
+        this.state.userLatitude,
+        this.state.userLongitude,
+        this.state[`place${index}lat`],
+        this.state[`place${index}lng`]])
+    });
 
-               [this.state.name2,
-                this.state.address2,
-                this.state.rating2,
-                this.props.placeType,
-                this.state.userLatitude,
-                this.state.userLongitude,
-                this.state.place2lat,
-                this.state.place2lng],
-
-                [this.state.name3,
-                 this.state.address3,
-                 this.state.rating3,
-                 this.props.placeType,
-                 this.state.userLatitude,
-                 this.state.userLongitude,
-                 this.state.place3lat,
-                 this.state.place3lng]
-    ]
 
     return (
       <Image source={require('../assets/blurryLights.jpg')} style={styles.backgroundImage}>
