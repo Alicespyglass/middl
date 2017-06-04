@@ -94,6 +94,11 @@ So I can know where to meet my friend
 I would like a map to show me where to go
 ```
 
+## Demo gif
+
+![Demo gif](./src/assets/demo.gif)
+
+
 ## Mockup
 
 ![Mockup](http://i.imgur.com/5BDkcOt.png)
@@ -123,7 +128,3 @@ I would like a map to show me where to go
 #### Whatsapp Message
 
 ![Whatsapp message](http://i.imgur.com/9jKctcZ.png)
-
-#### Demo gif
-
-![Demo gif](./src/assets/demo.gif)
