@@ -1,10 +1,14 @@
-![Travis CI badge](https://travis-ci.org/Alicespyglass/middl.svg?branch=master)
-
 # middl
 
 An iOS app for finding new places to meet your friends at a midpoint.
 
-This app allows a user to input their location and a friends location and using the Google Maps API finds the mid point based on latitude and longitude. The app then finds venues within a 500 meter radius of this based on the users selected venue type. Then the top three venues are displayed to the user along with the rating. The user can then select directions to the venue using Google Maps and can send a text message to their friend using Whatsapp with the suggested location.
+This app allows a user to input their location and a friends location and using the Google Maps API finds the midpoint based on latitude and longitude. The app then finds venues within a 500 meter radius of this based on the users selected venue type. The top three venues are displayed to the user along with the rating and address. The user can then select directions to the venue using Google Maps and can send a text message to their friend using Whatsapp with the suggested location.
+
+
+## Demo gif
+
+![Demo gif](./src/assets/demo.gif)
+
 
 ## Set-up
 **1. Install node (if you haven't already)**
@@ -93,11 +97,6 @@ As a user
 So I can know where to meet my friend
 I would like a map to show me where to go
 ```
-
-## Demo gif
-
-![Demo gif](./src/assets/demo.gif)
-
 
 ## Mockup
 
